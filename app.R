@@ -1,6 +1,4 @@
 library(shiny)
-library(shinyWidgets)
-library(shinyjs)
 ui <- fluidPage(
   titlePanel("Wybór kryteriów "),
   h3("Państwo"),
@@ -61,7 +59,7 @@ ui <- fluidPage(
   fluidRow(selectInput(inputId = "zasoby", label = "",
   choices = list("Rzeki" = "rzeki", "Uprawy" = "uprawy", "Lasy" = "lasy"), selected = NULL, multiple = TRUE)),
   h3("Czy chcesz uwzględnić przynależność do specjalnej strafy ekonomicznej (SSE)?"),
-  fluidRow(column(3, radioButtons(inputId = "strefa_ekon", label = "",choices = c("Tak", "Nie")))))
+  fluidRow(column(3, radioButtons(inputId = "strefa_ekon", label = "",choices = c("Tak", "Nie"), selected="Nie"))))
                     
   server <- function(input, output) {
 }
