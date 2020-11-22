@@ -37,7 +37,7 @@ ui <- fluidPage(
       column(3,numericInput(inputId = "szerokosc_od_stopnie", label = "Stopnie",
                    value = 45, min = 0, max = 90)),
       column(3,numericInput(inputId = "szerokosc_od_minuty", label = "Minuty",
-                   value = 30, min = 0, max = 60))),
+                   value = 30, min = 0, max = 59))),
     fluidRow(
       h4("Maksymalna"),
       column(3, radioButtons(inputId = "szerokosc_do_polkula", label = "Półkula",
@@ -45,7 +45,7 @@ ui <- fluidPage(
       column(3, numericInput(inputId = "szerokosc_do_stopnie", label = "Stopnie",
                                    value = 45, min = 0, max = 90)),
       column(3, numericInput(inputId = "szerokosc_do_minuty", label = "Minuty",
-                                   value = 30, min = 0, max = 60))),
+                                   value = 30, min = 0, max = 59))),
     h3("Długość geograficzna"),
     fluidRow(#wybór długości geograficznej
       h4("Minimalna"),
@@ -54,7 +54,7 @@ ui <- fluidPage(
         column(3, numericInput(inputId = "dlugosc_od_stopnie", label = "Stopnie",
                                    value = 90, min = 0, max = 180)),
         column(3, numericInput(inputId = "dlugosc_od_minuty", label = "Minuty",
-                                   value = 30, min = 0, max = 60))),
+                                   value = 30, min = 0, max = 59))),
     fluidRow(
       h4("Maksymalna"),
       column(3, radioButtons(inputId = "dlugosc_do_polkula", label = "Półkula",
@@ -62,7 +62,7 @@ ui <- fluidPage(
       column(3, numericInput(inputId = "dlugosc_do_stopnie", label = "Stopnie",
                              value = 90, min = 0, max = 180)),
       column(3, numericInput(inputId = "dlugosc_do_minuty", label = "Minuty",
-                             value = 30, min = 0, max = 60))
+                             value = 30, min = 0, max = 59))
     ),
     h3("Bliskość jakich zasobów jest interesująca?"),
     fluidRow(selectInput(inputId = "zasoby", label = "",
@@ -124,8 +124,26 @@ ui <- fluidPage(
               !is.null(input$dlugosc_od_minuty) &&
               !is.null(input$dlugosc_od_stopnie) &&
               !is.null(input$dlugosc_do_minuty) &&
-              !is.null(input$dlugosc_do_stopnie) &&
-              !is.null(input$zasoby)){
+              !is.null(input$dlugosc_do_stopnie)
+              #&&
+              #input$szerokosc_od_minuty >=0&&
+              #input$szerokosc_do_minuty >=0 &&
+              #input$dlugosc_od_minuty >= 0 &&
+              #input$dlugosc_do_minuty >=0 &&
+              #input$szerokosc_od_minuty <60 &&
+              #input$szerokosc_do_minuty <60 &&
+              #input$dlugosc_od_minuty <60 &&
+              #input$dlugosc_do_minuty <60 &&
+              #input$szerokosc_od_stopnie >=0 &&
+              #input$szerokosc_do_stopnie >=0 &&
+              #input$dlugosc_od_stopnie >= 0 &&
+              #input$dlugosc_do_stopnie >=0 &&
+              #(input$szerokosc_od_stopnie < 90 | (input$szerokosc_od_stopnie==90 && input$szerokosc_od_minuty==0)) &&
+              #(input$szerokosc_do_stopnie < 90  | (input$szerokosc_do_stopnie==90 && input$szerokosc_do_minuty==0)) &&
+              #(input$dlugosc_od_stopnie < 180 | (input$dlugosc_od_stopnie == 180 && input$dlugosc_od_minuty == 0)) &&
+              #(input$dlugosc_do_stopnie <180 | (input$dlugosc_do_stopnie==180 && input$dlugosc_do_minuty == 0))
+              #&&!is.null(input$zasoby) 
+              ){
         enable('submit')
       }
       else{
