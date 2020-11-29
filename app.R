@@ -71,7 +71,7 @@ ui <- fluidPage(
     fluidRow(column(3, radioButtons(inputId = "strefa_ekon", label = "",choices = c("Tak", "Nie"), selected="Nie"))),
     disabled(actionButton('submit', 'Zatwierdź'))),
   mainPanel(
-    textOutput('szukane')
+    htmlOutput('szukane')
   ))
                     
   server <- function(input, output) {
@@ -113,7 +113,7 @@ ui <- fluidPage(
            input$szerokosc_do_minuty, input$szerokosc_do_stopnie, input$dlugosc_od_minuty, input$dlugosc_od_stopnie,
            input$dlugosc_do_minuty, input$dlugosc_do_stopnie, input$zasoby)})
     observeEvent(toListen(),{
-      if(input$wybor_danych=="Regiony" && !is.null(input$panstwo) && !is.null(input$zasoby)){
+      if(input$wybor_danych=="Regiony" && !is.null(input$panstwo)){
         enable('submit')
       }
       else if(input$wybor_danych=="Współrzędne geograficzne" && 
@@ -150,8 +150,8 @@ ui <- fluidPage(
         disable('submit')
       }})
       observeEvent(input$submit, {
-        output$szukane <- renderText({
-          paste0("Sposób wyszukania: ", input$wybor_danych)
+        output$szukane <- renderUI({
+          HTML(paste("Sposób wyszukania: ", input$wybor_danych))
       })
     })
     }
