@@ -1,6 +1,9 @@
 library(shiny)
 library(shinythemes)
 library(shinyjs)
+library(getSpatialData)
+library(imager)
+library(water)
 
 
 ui <- fluidPage(
@@ -71,7 +74,8 @@ ui <- fluidPage(
     fluidRow(column(3, radioButtons(inputId = "strefa_ekon", label = "",choices = c("Tak", "Nie"), selected="Nie"))),
     disabled(actionButton('submit', 'Zatwierdź'))),
   mainPanel(
-    textOutput('szukane')
+    textOutput('szukane'),
+    plotOutput('image')
   ))
                     
   server <- function(input, output) {
@@ -150,9 +154,38 @@ ui <- fluidPage(
         disable('submit')
       }})
       observeEvent(input$submit, {
+        ### tworzenie obrazka
+        # wspolrzedne "w miare" Polski
+        tl <- c(14.25293, 54.67139)
+        br <- c(24.24317, 48.95515) 
+        aoi <- createAoi(topleft = tl, bottomright=br, EPSG=4326)
+        set_aoi(aoi)
+        
+        # logowanie do serwisu (niestety narazie trzeba stworzyc konto i logowac sie, w przyszlosci do poprawy)
+        time_range =  c("2020-08-30", "2020-09-30")
+        platform = "Sentinel-2"
+        login_CopHub(username = "jacekchess")
+
+        # odfiltrowanie zdjec ograniczonych do zakresu
+        query = getSentinel_records(time_range, platform)
+
+        # odfiltrowanie specjalnych obszarow po id (bez tego nie dziala, ale to tez daje mozliwosci w przyszlosci szukania po jakichs specjalnych terenach. Do doczytania)
+        query10 = query[query$cloudcov < 10 & query$tile_id == "T34UCA" & query$level == "Level-1C",]
+
+        # ustawianie lokalizacji do zapisywania zdjec. Narazie z tego nie korzystamy ale w przyszlosci fajne do wczytywania
+        set_archive("C:/04_R")
+        
+        # docelowy wykres. pokazuje wybrany obszar i 
+        # plot_test <- plot_records(query10)
+        records = get_previews(query10)
+        plot_test <- view_previews(records[2,])
+        
         output$szukane <- renderText({
           paste0("Sposób wyszukania: ", input$wybor_danych)
-      })
+          })
+        output$image <- renderPlot({
+          plot_test
+          })
     })
     }
 
