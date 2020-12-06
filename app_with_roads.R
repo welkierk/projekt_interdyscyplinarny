@@ -169,7 +169,7 @@ server <- function(input, output) {
     # logowanie do serwisu (niestety narazie trzeba stworzyc konto i logowac sie, w przyszlosci do poprawy)
     time_range =  c("2020-08-30", "2020-09-30")
     platform = "Sentinel-2"
-    login_CopHub(username = "jacekchess")
+    login_CopHub(username = "welkierk")
     
     # odfiltrowanie zdjec ograniczonych do zakresu
     query = getSentinel_records(time_range, platform)
