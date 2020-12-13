@@ -11,12 +11,12 @@ train_data <- read.csv('train.csv', fileEncoding='Windows-1250')
 ref$JPT_NAZWA_
 
 train_data$gmina <- str_remove(train_data$gmina, "gmina ")
-ref_short <- ref[ref$JPT_NAZWA_ %in% train_data$gmina, c('JPT_NAZWA_', 'Shape_Leng', 'Shape_Area')]
+ref_short <- ref[ref$JPT_KOD_JE %in% c(paste0(0,train_data$id), train_data$id), c('JPT_NAZWA_', 'Shape_Leng', 'Shape_Area')]
 ref_short$class <- rep(0, nrow(ref_short@data))
 
-gmina_poz<- train_data[train_data[['wynik']] == 1, 'gmina']
+gmina_poz<- train_data[train_data[['wynik']] == 1, 'id']
 
-ref_short[ref_short$JPT_NAZWA_ %in% gmina_poz, 'class'] <- 1
+ref_short[ref_short$JPT_KOD_JE %in% c(gmina_poz, paste0(0,gmina_poz)), 'class'] <- 1
 
 #okej, przygotowana ramka ref_short
 
@@ -44,10 +44,11 @@ wwk_stack_longlat <- projectRaster(wwk_stack, crs='+proj=longlat +ellps=GRS80 +n
 
 powiat_wwk <- crop(wwk_stack_longlat, c(18.63, 19.53, 52.33, 52.86))
 
+plotRGB(powiat_wwk, r=3, g=2, b=1, stretch='lin')
 library(kernlab)
 set.seed(1)
 ref_wwk_train <- ref_wwk[1:12, ]
 ref_wwk_val <- ref_wwk[13:14, ]
 wwk_model <- RStoolbox::superClass(powiat_wwk, ref_wwk_train, ref_wwk_val, trainPartition = 0.9, responseCol = 'class', model='rf',
                       mode='classification', tuneLength = 3, kfold = 1, predict=F, verbose=T)
-plotRGB(powiat_wwk, r=3, g=2, b=1, stretch='lin')
+
