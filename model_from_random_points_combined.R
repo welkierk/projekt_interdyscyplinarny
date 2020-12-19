@@ -1,8 +1,7 @@
-
-library('osmar')
-library('osmdata')
-library('geosphere')
-library('sf')
+library(osmar)
+library(osmdata)
+library(geosphere)
+library(sf)
 library(stringr)
 library(ggmap)
 library(dplyr)
@@ -19,12 +18,12 @@ random_points <- function(xmin, ymin, xmax, ymax){
   # Wspolrzedne podane na wejsciu przez uzytkownika
   box <- c(xmin, ymin, xmax, ymax)
   
-  important_values <- c('residential', 'service', 'track', 'unclassified', 'path', 'tertiary',
-                        'secondary', 'primary', 'living_street', 'trunk', 'motorway')
+  important_values <- c("residential","service","track","unclassified","path","tertiary",
+                        "secondary","primary","living_street","trunk","motorway")
   
   qBox <- box %>% 
     opq(timeout = 10000) %>%
-    add_osm_feature(key = 'highway', value = important_values) %>%
+    add_osm_feature(key = "highway", value = important_values) %>%
     osmdata_sf()
   
   
@@ -50,8 +49,7 @@ random_points <- function(xmin, ymin, xmax, ymax){
 
 dane_ze_wspol <- function(wektor_longitude, wektor_latitude){
   stopifnot(length(wektor_longitude) == length(wektor_latitude))
-  #mój klucz API - mam bezpłatny limit na dość sporą liczbę zapytań, ale jest to ograniczona
-  #liczba, więc korzystajcie, ale nie róbcie bez potrzeby pętli z tysiącami adresów
+
   register_google(key = "AIzaSyDzpUawTQC4I_Sru1G0EkgcgbsJ9uKAt2I", write = TRUE)
   tb <- read.csv("kody.csv", header = TRUE, row.names=NULL, sep = ";", fileEncoding = "UTF-8")
   tb <- unique(tb[,c("KOD.POCZTOWY","POWIAT")])
@@ -101,12 +99,12 @@ dane_ze_wspol <- function(wektor_longitude, wektor_latitude){
 
 predict_from_area <- function(xmin, ymin, xmax, ymax, n=100){
   points <- random_points(xmin, ymin, xmax, ymax)
-  points <- points[sample(1:nrow(points),n),]
+  points <- points[sample(x = 1:nrow(points), size = n),]
   rownames(points) <- 1:nrow(points)
   lon <- points$Longtitude
   lat <- points$Latitude
   x <- dane_ze_wspol(lon, lat)
-  colnames(x) <- c("gmina", "powiat", "kod_poczt", "długość", "szerokość")
+  colnames(x) <- c("gmina", "powiat", "kod_poczt", "dlugosc", "szerokosc")
   dt <- read.csv("dochody_i_ludnosc.csv", encoding = "UTF-8")
   dt$Nazwa <- substr(dt$Nazwa,1,nchar(dt$Nazwa)-4)
   dt <- dt %>% distinct(Nazwa, .keep_all=TRUE)
@@ -127,17 +125,10 @@ predict_from_area <- function(xmin, ymin, xmax, ymax, n=100){
   nazwy <- wynik[,c(1,4,5)]
   predictions <- predict(res_ranger$model, newdata=wynik[, 8:ncol(wynik)])
   result <- as.data.frame(cbind(as.numeric(predictions$data$prob.1), nazwy))
-  return(result)}
+  colnames(result)[1]<-c("score")
+  result <- result %>% distinct(gmina, .keep_all = TRUE) %>% arrange(desc(score))
+  
+  return(result)
+  }
 
 
-
-##PREZENTACJA 
-xmin <- 20.22
-ymin <- 52.71
-xmax <- 21.11
-ymax <- 53.82
-n <- 50
-result <- predict_from_area(xmin,ymin,xmax,ymax,n)
-colnames(result)[1]<-c("score")
-result %>% distinct(gmina, .keep_all = TRUE) %>% arrange(desc(score) )
-head(result[order(result$score, decreasing=TRUE),],5)
