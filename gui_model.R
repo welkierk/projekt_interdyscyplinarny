@@ -1,6 +1,8 @@
 library(shiny)
 library(shinyjs)
 library(dplyr)
+library(httr)
+timeout(1000)
 source("model_from_random_points_combined.R")
 
 ui <- fluidPage(
@@ -54,10 +56,9 @@ server <- function(input, output) {
      ymax <- input$max_lon_deg + input$max_lon_min * 0.01
      
      result <- predict_from_area(xmin, ymin, xmax, ymax, n = 10)
-     # prediction <- head(result[order(as.vector(result$score), decreasing=TRUE),],5)
-     # output$table <- renderTable(prediction)
-     output$table <- renderTable(c(xmin, ymin, xmax, ymax))
-     
+     prediction <- head(result[order(as.vector(result$score), decreasing=TRUE),],5)
+     output$table <- renderTable(prediction)
+
    }
    onclick("btn", renderTab)
 }   
