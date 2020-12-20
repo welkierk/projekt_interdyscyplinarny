@@ -26,8 +26,7 @@ area_around_point <- function(lat, lon, a = 10000) {
 }
 
 data_frame_from_photos <- function(lat, lon, a = 10000) {
-  # Zwraca data frame dotyczacy zdjec okolic podanego punktu.
-  # Mozna z tego wyczytac zalesienie, dostep do wody i chmury ale niewiele wiecej.
+  # Zwraca informacje o wodzie i roslinnosci na obszarze o polu a^2 w kolo punktu (lat, lon)
   
   df <- area_around_point(lat, lon, a)
   
@@ -37,14 +36,13 @@ data_frame_from_photos <- function(lat, lon, a = 10000) {
   # logowanie do serwisu (niestety narazie trzeba stworzyc konto i logowac sie, w przyszlosci do poprawy)
   time_range <-  c("2018-01-01", "2018-12-31")
   platform <- "Sentinel-2"
-  login_CopHub(username = "jacekchess")
+  login_CopHub(username = "jacekchess", password = "Jacekchess6")
   
   # odfiltrowanie zdjec ograniczonych do zakresu
   query <- getSentinel_records(time_range, platform)
   query <- query[query$level == "Level-2A", ]
   data_mod <- query %>%
-    group_by(tile_id) %>%
+    # group_by(tile_id) %>%
     summarise(water_mean = mean(water), vegetation_mean = mean(vegetation))
-  data_mod <- data.frame(tile = data_mod$tile_id, water = data_mod$water_mean, vegetation = data_mod$vegetation_mean)
+  data_mod <- data.frame(water = data_mod$water_mean, vegetation = data_mod$vegetation_mean)
 }
-
