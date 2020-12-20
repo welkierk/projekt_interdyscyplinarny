@@ -20,68 +20,71 @@ ludnosc_prod_mobil <- read.csv("ludnosc/ludnosc_prod_mobil.csv", sep=";", fileEn
 ludnosc_prod_niemobil <- read.csv("ludnosc/ludnosc_prod_niemobil.csv", sep=";", fileEncoding='Windows-1250', dec = ",")
 ludnosc_przed_prod <- read.csv("ludnosc/ludnosc_przed_prod.csv", sep=";", fileEncoding='Windows-1250', dec = ",")
 
-dochody_dzialalnosc_gosp[["dochody_dzialalnosc_gosp_wzrost_2016"]] <- (dochody_dzialalnosc_gosp[["rok_2016"]] - dochody_dzialalnosc_gosp[["rok_2015"]])/dochody_dzialalnosc_gosp[["rok_2015"]]
-dochody_dzialalnosc_gosp[["dochody_dzialalnosc_gosp_wzrost_2017"]] <- (dochody_dzialalnosc_gosp[["rok_2017"]] - dochody_dzialalnosc_gosp[["rok_2016"]])/dochody_dzialalnosc_gosp[["rok_2016"]]
+dochody_dzialalnosc_gosp[["dochody_dzialalnosc_gosp_wzrost_2018"]] <- (dochody_dzialalnosc_gosp[["rok_2018"]] - dochody_dzialalnosc_gosp[["rok_2019"]])/dochody_dzialalnosc_gosp[["rok_2019"]]
+dochody_dzialalnosc_gosp[["dochody_dzialalnosc_gosp_wzrost_2019"]] <- (dochody_dzialalnosc_gosp[["rok_2019"]] - dochody_dzialalnosc_gosp[["rok_2018"]])/dochody_dzialalnosc_gosp[["rok_2018"]]
 
-#dochody_inwestycyjne[["dochody_inwestycyjne_wzrost_2016"]] <- (dochody_inwestycyjne[["rok_2016"]] - dochody_inwestycyjne[["rok_2015"]])/dochody_inwestycyjne[["rok_2015"]]
-#dochody_inwestycyjne[["dochody_inwestycyjne_wzrost_2017"]] <- (dochody_inwestycyjne[["rok_2017"]] - dochody_inwestycyjne[["rok_2016"]])/dochody_inwestycyjne[["rok_2016"]]
+#dochody_inwestycyjne[["dochody_inwestycyjne_wzrost_2018"]] <- (dochody_inwestycyjne[["rok_2018"]] - dochody_inwestycyjne[["rok_2019"]])/dochody_inwestycyjne[["rok_2019"]]
+#dochody_inwestycyjne[["dochody_inwestycyjne_wzrost_2019"]] <- (dochody_inwestycyjne[["rok_2019"]] - dochody_inwestycyjne[["rok_2018"]])/dochody_inwestycyjne[["rok_2018"]]
 
-dochody_majatek[["dochody_majatek_wzrost_2016"]] <- (dochody_majatek[["rok_2016"]] - dochody_majatek[["rok_2015"]])/dochody_majatek[["rok_2015"]]
-dochody_majatek[["dochody_majatek_wzrost_2017"]] <- (dochody_majatek[["rok_2017"]] - dochody_majatek[["rok_2016"]])/dochody_majatek[["rok_2016"]]
+dochody_majatek[["dochody_majatek_wzrost_2018"]] <- (dochody_majatek[["rok_2018"]] - dochody_majatek[["rok_2019"]])/dochody_majatek[["rok_2019"]]
+dochody_majatek[["dochody_majatek_wzrost_2019"]] <- (dochody_majatek[["rok_2019"]] - dochody_majatek[["rok_2018"]])/dochody_majatek[["rok_2018"]]
 
-dochody_najm_dierzawa[["dochody_najm_dzierzawa_wzrost_2016"]] <- (dochody_najm_dierzawa[["rok_2016"]] - dochody_najm_dierzawa[["rok_2015"]])/dochody_najm_dierzawa[["rok_2015"]]
-dochody_najm_dierzawa[["dochody_najm_dzierzawa_wzrost_2017"]] <- (dochody_najm_dierzawa[["rok_2017"]] - dochody_najm_dierzawa[["rok_2016"]])/dochody_najm_dierzawa[["rok_2016"]]
+dochody_najm_dierzawa[["dochody_najm_dzierzawa_wzrost_2018"]] <- (dochody_najm_dierzawa[["rok_2018"]] - dochody_najm_dierzawa[["rok_2019"]])/dochody_najm_dierzawa[["rok_2019"]]
+dochody_najm_dierzawa[["dochody_najm_dzierzawa_wzrost_2019"]] <- (dochody_najm_dierzawa[["rok_2019"]] - dochody_najm_dierzawa[["rok_2018"]])/dochody_najm_dierzawa[["rok_2018"]]
 
-dochody_nieruchomosci[["dochody_nieruchomosci_wzrost_2016"]] <- (dochody_nieruchomosci[["rok_2016"]] - dochody_nieruchomosci[["rok_2015"]])/dochody_nieruchomosci[["rok_2015"]]
-dochody_nieruchomosci[["dochody_nieruchomosci_wzrost_2017"]] <- (dochody_nieruchomosci[["rok_2017"]] - dochody_nieruchomosci[["rok_2016"]])/dochody_nieruchomosci[["rok_2016"]]
+dochody_nieruchomosci[["dochody_nieruchomosci_wzrost_2018"]] <- (dochody_nieruchomosci[["rok_2018"]] - dochody_nieruchomosci[["rok_2019"]])/dochody_nieruchomosci[["rok_2019"]]
+dochody_nieruchomosci[["dochody_nieruchomosci_wzrost_2019"]] <- (dochody_nieruchomosci[["rok_2019"]] - dochody_nieruchomosci[["rok_2018"]])/dochody_nieruchomosci[["rok_2018"]]
 
-dochody_podatek_lesny[["dochody_podatek_lesny_wzrost_2016"]] <- (dochody_podatek_lesny[["rok_2016"]] - dochody_podatek_lesny[["rok_2015"]])/dochody_podatek_lesny[["rok_2015"]]
-dochody_podatek_lesny[["dochody_podatek_lesny_wzrost_2017"]] <- (dochody_podatek_lesny[["rok_2017"]] - dochody_podatek_lesny[["rok_2016"]])/dochody_podatek_lesny[["rok_2016"]]
+dochody_podatek_lesny[["dochody_podatek_lesny_wzrost_2018"]] <- (dochody_podatek_lesny[["rok_2018"]] - dochody_podatek_lesny[["rok_2019"]])/dochody_podatek_lesny[["rok_2019"]]
+dochody_podatek_lesny[["dochody_podatek_lesny_wzrost_2019"]] <- (dochody_podatek_lesny[["rok_2019"]] - dochody_podatek_lesny[["rok_2018"]])/dochody_podatek_lesny[["rok_2018"]]
 
-dochody_podatek_rolny[["dochody_podatek_rolny_wzrost_2016"]] <- (dochody_podatek_rolny[["rok_2016"]] - dochody_podatek_rolny[["rok_2015"]])/dochody_podatek_rolny[["rok_2015"]]
-dochody_podatek_rolny[["dochody_podatek_rolny_wzrost_2017"]] <- (dochody_podatek_rolny[["rok_2017"]] - dochody_podatek_rolny[["rok_2016"]])/dochody_podatek_rolny[["rok_2016"]]
+dochody_podatek_rolny[["dochody_podatek_rolny_wzrost_2018"]] <- (dochody_podatek_rolny[["rok_2018"]] - dochody_podatek_rolny[["rok_2019"]])/dochody_podatek_rolny[["rok_2019"]]
+dochody_podatek_rolny[["dochody_podatek_rolny_wzrost_2019"]] <- (dochody_podatek_rolny[["rok_2019"]] - dochody_podatek_rolny[["rok_2018"]])/dochody_podatek_rolny[["rok_2018"]]
 
-dochody_srodki_transportowe[["dochody_srodki_transportowe_wzrost_2016"]] <- (dochody_srodki_transportowe[["rok_2016"]] - dochody_srodki_transportowe[["rok_2015"]])/dochody_srodki_transportowe[["rok_2015"]]
-dochody_srodki_transportowe[["dochody_srodki_transportowe_wzrost_2017"]] <- (dochody_srodki_transportowe[["rok_2017"]] - dochody_srodki_transportowe[["rok_2016"]])/dochody_srodki_transportowe[["rok_2016"]]
+dochody_srodki_transportowe[["dochody_srodki_transportowe_wzrost_2018"]] <- (dochody_srodki_transportowe[["rok_2018"]] - dochody_srodki_transportowe[["rok_2019"]])/dochody_srodki_transportowe[["rok_2019"]]
+dochody_srodki_transportowe[["dochody_srodki_transportowe_wzrost_2019"]] <- (dochody_srodki_transportowe[["rok_2019"]] - dochody_srodki_transportowe[["rok_2018"]])/dochody_srodki_transportowe[["rok_2018"]]
 
-dochody_total[["dochody_total_wzrost_2016"]] <- (dochody_total[["rok_2016"]] - dochody_total[["rok_2015"]])/dochody_total[["rok_2015"]]
-dochody_total[["dochody_total_wzrost_2017"]] <- (dochody_total[["rok_2017"]] - dochody_total[["rok_2016"]])/dochody_total[["rok_2016"]]
+dochody_total[["dochody_total_wzrost_2018"]] <- (dochody_total[["rok_2018"]] - dochody_total[["rok_2019"]])/dochody_total[["rok_2019"]]
+dochody_total[["dochody_total_wzrost_2019"]] <- (dochody_total[["rok_2019"]] - dochody_total[["rok_2018"]])/dochody_total[["rok_2018"]]
 
-dochody_uslugi[["dochody_uslugi_wzrost_2016"]] <- (dochody_uslugi[["rok_2016"]] - dochody_uslugi[["rok_2015"]])/dochody_uslugi[["rok_2015"]]
-dochody_uslugi[["dochody_uslugi_wzrost_2017"]] <- (dochody_uslugi[["rok_2017"]] - dochody_uslugi[["rok_2016"]])/dochody_uslugi[["rok_2016"]]
+dochody_uslugi[["dochody_uslugi_wzrost_2018"]] <- (dochody_uslugi[["rok_2018"]] - dochody_uslugi[["rok_2019"]])/dochody_uslugi[["rok_2019"]]
+dochody_uslugi[["dochody_uslugi_wzrost_2019"]] <- (dochody_uslugi[["rok_2019"]] - dochody_uslugi[["rok_2018"]])/dochody_uslugi[["rok_2018"]]
 
-ludnosc_po_prod[["ludnosc_po_prod_wzrost_2016"]] <- (ludnosc_po_prod[["rok_2016"]] - ludnosc_po_prod[["rok_2015"]])/ludnosc_po_prod[["rok_2015"]]
-ludnosc_po_prod[["ludnosc_po_prod_wzrost_2017"]] <- (ludnosc_po_prod[["rok_2017"]] - ludnosc_po_prod[["rok_2016"]])/ludnosc_po_prod[["rok_2016"]]
+ludnosc_po_prod[["ludnosc_po_prod_wzrost_2018"]] <- (ludnosc_po_prod[["rok_2018"]] - ludnosc_po_prod[["rok_2019"]])/ludnosc_po_prod[["rok_2019"]]
+ludnosc_po_prod[["ludnosc_po_prod_wzrost_2019"]] <- (ludnosc_po_prod[["rok_2019"]] - ludnosc_po_prod[["rok_2018"]])/ludnosc_po_prod[["rok_2018"]]
 
-ludnosc_prod[["ludnosc_prod_wzrost_2016"]] <- (ludnosc_prod[["rok_2016"]] - ludnosc_prod[["rok_2015"]])/ludnosc_prod[["rok_2015"]]
-ludnosc_prod[["ludnosc_prod_wzrost_2017"]] <- (ludnosc_prod[["rok_2017"]] - ludnosc_prod[["rok_2016"]])/ludnosc_prod[["rok_2016"]]
+ludnosc_prod[["ludnosc_prod_wzrost_2018"]] <- (ludnosc_prod[["rok_2018"]] - ludnosc_prod[["rok_2019"]])/ludnosc_prod[["rok_2019"]]
+ludnosc_prod[["ludnosc_prod_wzrost_2019"]] <- (ludnosc_prod[["rok_2019"]] - ludnosc_prod[["rok_2018"]])/ludnosc_prod[["rok_2018"]]
 
-ludnosc_prod_mobil[["ludnosc_prod_mobil_wzrost_2016"]] <- (ludnosc_prod_mobil[["rok_2016"]] - ludnosc_prod_mobil[["rok_2015"]])/ludnosc_prod_mobil[["rok_2015"]]
-ludnosc_prod_mobil[["ludnosc_prod_mobil_wzrost_2017"]] <- (ludnosc_prod_mobil[["rok_2017"]] - ludnosc_prod_mobil[["rok_2016"]])/ludnosc_prod_mobil[["rok_2016"]]
+ludnosc_prod_mobil[["ludnosc_prod_mobil_wzrost_2018"]] <- (ludnosc_prod_mobil[["rok_2018"]] - ludnosc_prod_mobil[["rok_2019"]])/ludnosc_prod_mobil[["rok_2019"]]
+ludnosc_prod_mobil[["ludnosc_prod_mobil_wzrost_2019"]] <- (ludnosc_prod_mobil[["rok_2019"]] - ludnosc_prod_mobil[["rok_2018"]])/ludnosc_prod_mobil[["rok_2018"]]
 
-ludnosc_prod_niemobil[["ludnosc_prod_niemobil_wzrost_2016"]] <- (ludnosc_prod_niemobil[["rok_2016"]] - ludnosc_prod_niemobil[["rok_2015"]])/ludnosc_prod_niemobil[["rok_2015"]]
-ludnosc_prod_niemobil[["ludnosc_prod_niemobil_wzrost_2017"]] <- (ludnosc_prod_niemobil[["rok_2017"]] - ludnosc_prod_niemobil[["rok_2016"]])/ludnosc_prod_niemobil[["rok_2016"]]
+ludnosc_prod_niemobil[["ludnosc_prod_niemobil_wzrost_2018"]] <- (ludnosc_prod_niemobil[["rok_2018"]] - ludnosc_prod_niemobil[["rok_2019"]])/ludnosc_prod_niemobil[["rok_2019"]]
+ludnosc_prod_niemobil[["ludnosc_prod_niemobil_wzrost_2019"]] <- (ludnosc_prod_niemobil[["rok_2019"]] - ludnosc_prod_niemobil[["rok_2018"]])/ludnosc_prod_niemobil[["rok_2018"]]
 
-ludnosc_przed_prod[["ludnosc_przed_prod_wzrost_2016"]] <- (ludnosc_przed_prod[["rok_2016"]] - ludnosc_przed_prod[["rok_2015"]])/ludnosc_przed_prod[["rok_2015"]]
-ludnosc_przed_prod[["ludnosc_przed_prod_wzrost_2017"]] <- (ludnosc_przed_prod[["rok_2017"]] - ludnosc_przed_prod[["rok_2016"]])/ludnosc_przed_prod[["rok_2016"]]
+ludnosc_przed_prod[["ludnosc_przed_prod_wzrost_2018"]] <- (ludnosc_przed_prod[["rok_2018"]] - ludnosc_przed_prod[["rok_2019"]])/ludnosc_przed_prod[["rok_2019"]]
+ludnosc_przed_prod[["ludnosc_przed_prod_wzrost_2019"]] <- (ludnosc_przed_prod[["rok_2019"]] - ludnosc_przed_prod[["rok_2018"]])/ludnosc_przed_prod[["rok_2018"]]
 
-ludnosc_wzrost_merged <- merge.data.frame(ludnosc_przed_prod[,c("Kod", "Nazwa", "ludnosc_przed_prod_wzrost_2016", "ludnosc_przed_prod_wzrost_2017")], ludnosc_prod[,c("Kod", "Nazwa", "ludnosc_prod_wzrost_2016", "ludnosc_prod_wzrost_2017")], by = c("Kod", "Nazwa"))
-ludnosc_wzrost_merged <- merge.data.frame(ludnosc_wzrost_merged, ludnosc_prod_mobil[,c("Kod", "Nazwa", "ludnosc_prod_mobil_wzrost_2016", "ludnosc_prod_mobil_wzrost_2017")], by = c("Kod", "Nazwa"))
-ludnosc_wzrost_merged <- merge.data.frame(ludnosc_wzrost_merged, ludnosc_prod_niemobil[,c("Kod", "Nazwa", "ludnosc_prod_niemobil_wzrost_2016", "ludnosc_prod_niemobil_wzrost_2017")], by = c("Kod", "Nazwa"))
-ludnosc_wzrost_merged <- merge.data.frame(ludnosc_wzrost_merged, ludnosc_po_prod[,c("Kod", "Nazwa", "ludnosc_po_prod_wzrost_2016", "ludnosc_po_prod_wzrost_2017")], by = c("Kod", "Nazwa"))
+ludnosc_wzrost_merged <- merge.data.frame(ludnosc_przed_prod[,c("Kod", "Nazwa", "ludnosc_przed_prod_wzrost_2018", "ludnosc_przed_prod_wzrost_2019")], ludnosc_prod[,c("Kod", "Nazwa", "ludnosc_prod_wzrost_2018", "ludnosc_prod_wzrost_2019")], by = c("Kod", "Nazwa"))
+ludnosc_wzrost_merged <- merge.data.frame(ludnosc_wzrost_merged, ludnosc_prod_mobil[,c("Kod", "Nazwa", "ludnosc_prod_mobil_wzrost_2018", "ludnosc_prod_mobil_wzrost_2019")], by = c("Kod", "Nazwa"))
+ludnosc_wzrost_merged <- merge.data.frame(ludnosc_wzrost_merged, ludnosc_prod_niemobil[,c("Kod", "Nazwa", "ludnosc_prod_niemobil_wzrost_2018", "ludnosc_prod_niemobil_wzrost_2019")], by = c("Kod", "Nazwa"))
+ludnosc_wzrost_merged <- merge.data.frame(ludnosc_wzrost_merged, ludnosc_po_prod[,c("Kod", "Nazwa", "ludnosc_po_prod_wzrost_2018", "ludnosc_po_prod_wzrost_2019")], by = c("Kod", "Nazwa"))
 
-dochody_wzrost_merged <- merge.data.frame(dochody_dzialalnosc_gosp[,c("Kod", "Nazwa", "dochody_dzialalnosc_gosp_wzrost_2016", "dochody_dzialalnosc_gosp_wzrost_2017")], dochody_majatek[,c("Kod", "Nazwa", "dochody_majatek_wzrost_2016", "dochody_majatek_wzrost_2016")], by = c("Kod", "Nazwa"))
-dochody_wzrost_merged <- merge.data.frame(dochody_wzrost_merged, dochody_najm_dierzawa[,c("Kod", "Nazwa", "dochody_najm_dzierzawa_wzrost_2016", "dochody_najm_dzierzawa_wzrost_2017")], by = c("Kod", "Nazwa"))
-dochody_wzrost_merged <- merge.data.frame(dochody_wzrost_merged, dochody_nieruchomosci[,c("Kod", "Nazwa", "dochody_nieruchomosci_wzrost_2016", "dochody_nieruchomosci_wzrost_2017")], by = c("Kod", "Nazwa"))
-dochody_wzrost_merged <- merge.data.frame(dochody_wzrost_merged, dochody_podatek_lesny[,c("Kod", "Nazwa", "dochody_podatek_lesny_wzrost_2016", "dochody_podatek_lesny_wzrost_2017")], by = c("Kod", "Nazwa"))
-dochody_wzrost_merged <- merge.data.frame(dochody_wzrost_merged, dochody_podatek_rolny[,c("Kod", "Nazwa", "dochody_podatek_rolny_wzrost_2016", "dochody_podatek_rolny_wzrost_2017")], by = c("Kod", "Nazwa"))
-dochody_wzrost_merged <- merge.data.frame(dochody_wzrost_merged, dochody_srodki_transportowe[,c("Kod", "Nazwa", "dochody_srodki_transportowe_wzrost_2016", "dochody_srodki_transportowe_wzrost_2017")], by = c("Kod", "Nazwa"))
-dochody_wzrost_merged <- merge.data.frame(dochody_wzrost_merged, dochody_total[,c("Kod", "Nazwa", "dochody_total_wzrost_2016", "dochody_total_wzrost_2017")], by = c("Kod", "Nazwa"))
-dochody_wzrost_merged <- merge.data.frame(dochody_wzrost_merged, dochody_uslugi[,c("Kod", "Nazwa", "dochody_uslugi_wzrost_2016", "dochody_uslugi_wzrost_2017")], by = c("Kod", "Nazwa"))
+dochody_wzrost_merged <- merge.data.frame(dochody_dzialalnosc_gosp[,c("Kod", "Nazwa", "dochody_dzialalnosc_gosp_wzrost_2018", "dochody_dzialalnosc_gosp_wzrost_2019")], dochody_majatek[,c("Kod", "Nazwa", "dochody_majatek_wzrost_2018", "dochody_majatek_wzrost_2018")], by = c("Kod", "Nazwa"))
+dochody_wzrost_merged <- merge.data.frame(dochody_wzrost_merged, dochody_najm_dierzawa[,c("Kod", "Nazwa", "dochody_najm_dzierzawa_wzrost_2018", "dochody_najm_dzierzawa_wzrost_2019")], by = c("Kod", "Nazwa"))
+dochody_wzrost_merged <- merge.data.frame(dochody_wzrost_merged, dochody_nieruchomosci[,c("Kod", "Nazwa", "dochody_nieruchomosci_wzrost_2018", "dochody_nieruchomosci_wzrost_2019")], by = c("Kod", "Nazwa"))
+dochody_wzrost_merged <- merge.data.frame(dochody_wzrost_merged, dochody_podatek_lesny[,c("Kod", "Nazwa", "dochody_podatek_lesny_wzrost_2018", "dochody_podatek_lesny_wzrost_2019")], by = c("Kod", "Nazwa"))
+dochody_wzrost_merged <- merge.data.frame(dochody_wzrost_merged, dochody_podatek_rolny[,c("Kod", "Nazwa", "dochody_podatek_rolny_wzrost_2018", "dochody_podatek_rolny_wzrost_2019")], by = c("Kod", "Nazwa"))
+dochody_wzrost_merged <- merge.data.frame(dochody_wzrost_merged, dochody_srodki_transportowe[,c("Kod", "Nazwa", "dochody_srodki_transportowe_wzrost_2018", "dochody_srodki_transportowe_wzrost_2019")], by = c("Kod", "Nazwa"))
+dochody_wzrost_merged <- merge.data.frame(dochody_wzrost_merged, dochody_total[,c("Kod", "Nazwa", "dochody_total_wzrost_2018", "dochody_total_wzrost_2019")], by = c("Kod", "Nazwa"))
+dochody_wzrost_merged <- merge.data.frame(dochody_wzrost_merged, dochody_uslugi[,c("Kod", "Nazwa", "dochody_uslugi_wzrost_2018", "dochody_uslugi_wzrost_2019")], by = c("Kod", "Nazwa"))
 
 
 gminy_dane <- merge.data.frame(dochody_wzrost_merged, ludnosc_wzrost_merged[,-2], by = "Kod")
 gminy_dane[gminy_dane==Inf]<- NA
 
 gminy_dane
-write.csv(gminy_dane, "dochody_i_ludnosc.csv")
+gminy_dane_stare <- read.csv("dochody_i_ludnosc_2.csv", fileEncoding='Windows-1250')
+nrow(gminy_dane_stare)
+gminy_dane <- merge.data.frame(gminy_dane, gminy_dane_stare[,c("Kod", "longitude", "latitude")], by="Kod")
+write.csv(gminy_dane, "dochody_i_ludnosc_2017-2019.csv")
