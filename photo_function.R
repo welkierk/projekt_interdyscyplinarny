@@ -1,6 +1,8 @@
 library(SoDA)
 library(geodist)
 library(getSpatialData)
+library(water)
+library(dplyr)
 source("./random_points_on_roads_from_area.R")
 
 area_around_point <- function(lat, lon, a = 10000) {
@@ -33,11 +35,16 @@ data_frame_from_photos <- function(lat, lon, a = 10000) {
   set_aoi(aoi)
   
   # logowanie do serwisu (niestety narazie trzeba stworzyc konto i logowac sie, w przyszlosci do poprawy)
-  time_range <-  c("2020-08-30", "2020-09-30")
+  time_range <-  c("2018-01-01", "2018-12-31")
   platform <- "Sentinel-2"
   login_CopHub(username = "jacekchess")
   
   # odfiltrowanie zdjec ograniczonych do zakresu
   query <- getSentinel_records(time_range, platform)
   query <- query[query$level == "Level-2A", ]
+  data_mod <- query %>%
+    group_by(tile_id) %>%
+    summarise(water_mean = mean(water), vegetation_mean = mean(vegetation))
+  data_mod <- data.frame(tile = data_mod$tile_id, water = data_mod$water_mean, vegetation = data_mod$vegetation_mean)
 }
+
