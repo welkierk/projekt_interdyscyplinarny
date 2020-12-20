@@ -6,12 +6,11 @@ library(httr)
 library(shinythemes)
 library(shinyWidgets)
 timeout(1000)
-#setwd( "C:/Users/koste/Studia/07/PI/github/projekt_interdyscyplinarny/model2")
 source("model_from_random_points_combined.R")
 
 ui <- fluidPage(
   theme = shinytheme('flatly'),
-  setBackgroundColor(color = c("#FFFFFF", "#4444FF"),
+  setBackgroundColor(color = c("#F7FBFF", "#2171B5"),
                      gradient = "linear",
                      direction = c("right", "bottom")),
   titlePanel("Criterions "),
@@ -61,7 +60,7 @@ ui <- fluidPage(
     br(),
     br(),
     h4("Model predictions"),
-    DT::dataTableOutput('table')
+    DT::dataTableOutput('table'),
   ),
   useShinyjs()
 )
@@ -94,7 +93,6 @@ server <- function(input, output) {
   output$value <- renderPrint({ numbers() })
   
   
-  
   # Call Onclick
   renderTab <- function(){
     xmin <- input$min_lat_deg
@@ -102,7 +100,7 @@ server <- function(input, output) {
     ymin <- input$min_lon_deg  
     ymax <- input$max_lon_deg
     
-    result <- predict_from_area(xmin, ymin, xmax, ymax, n = 10)
+    result <- predict_from_area(xmin, ymin, xmax, ymax, n = 5)
     prediction <- head(result[order(as.vector(result$score), decreasing=TRUE),],5)
     
     output$table <- DT::renderDataTable(prediction,
