@@ -33,14 +33,14 @@ ui <- fluidPage(
                                                    "zachodniopomorskie" = "Z")), selected = NULL, multiple = TRUE)),
     
     h5("Coordinates selection"),
+    numericInput("min_lon_deg", label = "Minimum longtitude (degrees)", 
+                 value = 20.22, min = 0, max = 90),
+    numericInput("max_lon_deg", label = "Maximum longtitude (degrees)", 
+                 value = 21.11, min = 0, max = 90),
     numericInput("min_lat_deg", label = "Minimum latitude (degrees)", 
-                 value = 45.5, min = 0, max = 90),
-    numericInput("max_lat_deg", label = "Maximum lattitude (degrees)", 
-                 value = 46.34, min = 0, max = 90),
-    numericInput("min_lon_deg", label = "Minimum longitude (degrees)", 
-                 value = 32.57, min = 0, max = 90),
-    numericInput("max_lon_deg", label = "Maximum longitude (degrees)", 
-                 value = 34.33, min = 0, max = 90),
+                 value = 52.71, min = 0, max = 90),
+    numericInput("max_lat_deg", label = "Maximum latitude (degrees)", 
+                 value = 53.82, min = 0, max = 90),
     
     verbatimTextOutput("value"),
     
@@ -99,7 +99,7 @@ server <- function(input, output) {
     ymin <- input$min_lon_deg  
     ymax <- input$max_lon_deg
     
-    result <- predict_from_area(xmin, ymin, xmax, ymax, n = 10)
+    result <- predict_from_area(xmin, ymin, xmax, ymax, n = 50)
     prediction <- head(result[order(as.vector(result$score), decreasing=TRUE),],5)
 
     output$table <- DT::renderDataTable(prediction)
