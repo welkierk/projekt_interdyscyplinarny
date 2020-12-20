@@ -3,6 +3,7 @@ library(shinyjs)
 library(dplyr)
 library(DT)
 library(httr)
+library(shinythemes)
 timeout(1000)
 source("model_from_random_points_combined.R")
 
