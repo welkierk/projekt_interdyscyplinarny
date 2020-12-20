@@ -127,6 +127,7 @@ predict_from_area <- function(xmin, ymin, xmax, ymax, n=100){
   result <- as.data.frame(cbind(as.numeric(predictions$data$prob.1), nazwy))
   colnames(result)[1]<-c("score")
   result <- result %>% distinct(gmina, .keep_all = TRUE) %>% arrange(desc(score))
+  result$score %>% round(4)
   
   return(result)
 }

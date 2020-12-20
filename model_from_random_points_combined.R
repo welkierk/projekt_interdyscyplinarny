@@ -42,10 +42,9 @@ random_points <- function(xmin, ymin, xmax, ymax){
   
   df <- data.frame("Longtitude" = random_points_lat,
                    "Latitude" = random_points_long)
-  
-  return(df)
-  
+
 }
+
 
 dane_ze_wspol <- function(wektor_longitude, wektor_latitude){
   stopifnot(length(wektor_longitude) == length(wektor_latitude))
@@ -90,12 +89,13 @@ dane_ze_wspol <- function(wektor_longitude, wektor_latitude){
       results_element_add <- results_element_add + 1
     }
   }
-  cbind(gminy[1:results_element_add-1], powiaty[1:results_element_add-1], postal_codes[1:results_element_add-1], as.numeric(longitude[1:results_element_add-1]), as.numeric(latitude[1:results_element_add-1]))
+
+  res <- cbind(as.character(gminy[1:results_element_add-1]), as.character(powiaty[1:results_element_add-1]), as.character(postal_codes[1:results_element_add-1]), as.character(longitude[1:results_element_add-1]), as.character(latitude[1:results_element_add-1]))
+  return(res)
 }
 
 #funkcja - n to liczba punktów do wylosowania, xmin,ymin,xmax,ymax wspolrzedne (x - dlugosc, y-szerokosc)
 #data_frame_for_predictions <- function(xmin, ymin, xmax, ymax, n=100){
-
 
 predict_from_area <- function(xmin, ymin, xmax, ymax, n=100){
   points <- random_points(xmin, ymin, xmax, ymax)
@@ -109,9 +109,7 @@ predict_from_area <- function(xmin, ymin, xmax, ymax, n=100){
   dt$Nazwa <- substr(dt$Nazwa,1,nchar(dt$Nazwa)-4)
   dt <- dt %>% distinct(Nazwa, .keep_all=TRUE)
   x <- as.data.frame(x)
-  #####
-  wynik <- x %>% left_join(dt, by=c("gmina"="Nazwa")) #potencjalne miejsce błędu w shiny: Error in : Can't join on 'Nazwa' x 'gmina' because of incompatible types (character / numeric)
-  ######
+  wynik <- x %>% left_join(dt, by=c("gmina"="Nazwa"))
   wynik <- na.omit(wynik)
   ncol(wynik[, 8:ncol(wynik)])
   train <- read.csv("train.csv")

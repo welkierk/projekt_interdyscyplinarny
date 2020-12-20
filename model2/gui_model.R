@@ -4,11 +4,16 @@ library(dplyr)
 library(DT)
 library(httr)
 library(shinythemes)
+library(shinyWidgets)
 timeout(1000)
+#setwd( "C:/Users/koste/Studia/07/PI/github/projekt_interdyscyplinarny/model2")
 source("model_from_random_points_combined.R")
 
 ui <- fluidPage(
   theme = shinytheme('flatly'),
+  setBackgroundColor(color = c("#FFFFFF", "#4444FF"),
+                     gradient = "linear",
+                     direction = c("right", "bottom")),
   titlePanel("Criterions "),
   sidebarPanel(
     radioButtons(inputId = "dataChoice", label = "Specify the location preferences",
@@ -59,8 +64,6 @@ ui <- fluidPage(
     DT::dataTableOutput('table')
   ),
   useShinyjs()
-  
-  
 )
 server <- function(input, output) {
   
@@ -102,7 +105,8 @@ server <- function(input, output) {
     result <- predict_from_area(xmin, ymin, xmax, ymax, n = 10)
     prediction <- head(result[order(as.vector(result$score), decreasing=TRUE),],5)
     
-    output$table <- DT::renderDataTable(prediction)
+    output$table <- DT::renderDataTable(prediction,
+                                        colnames = c('Score', 'Gmina', 'Longitude', 'Latitude'))
     
   }
   onclick("btn", renderTab)
@@ -131,7 +135,6 @@ server <- function(input, output) {
       file.rename(out, file)
     }
   )
-  
 }   
 
 shinyApp(ui = ui, server = server)
