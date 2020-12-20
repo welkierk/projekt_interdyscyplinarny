@@ -4,10 +4,6 @@ library(dplyr)
 library(DT)
 library(httr)
 library(shinythemes)
-library(ranger)
-library(mlr)
-library(osmar)
-library(tuneRanger)
 timeout(1000)
 source("model_from_random_points_combined.R")
 
@@ -40,11 +36,11 @@ ui <- fluidPage(
     numericInput("min_lat_deg", label = "Minimum latitude (degrees)", 
                  value = 45.5, min = 0, max = 90),
     numericInput("max_lat_deg", label = "Maximum lattitude (degrees)", 
-                 value = 64.34, min = 0, max = 90),
+                 value = 46.34, min = 0, max = 90),
     numericInput("min_lon_deg", label = "Minimum longitude (degrees)", 
                  value = 32.57, min = 0, max = 90),
     numericInput("max_lon_deg", label = "Maximum longitude (degrees)", 
-                 value = 56.33, min = 0, max = 90),
+                 value = 34.33, min = 0, max = 90),
     
     verbatimTextOutput("value"),
     
@@ -105,11 +101,8 @@ server <- function(input, output) {
     
     result <- predict_from_area(xmin, ymin, xmax, ymax, n = 10)
     prediction <- head(result[order(as.vector(result$score), decreasing=TRUE),],5)
-    
-    # testowo wstawilam tutaj dowolna ramke, bo moje RStudio nie wspolpracuje z modelem
-    # na potrzeby projektu wystarczy odkomentowac to co jest wyzej
-    #prediction <- head(iris) 
-    #output$table <- DT::renderDataTable(prediction)
+
+    output$table <- DT::renderDataTable(prediction)
     
   }
   onclick("btn", renderTab)
@@ -140,6 +133,5 @@ server <- function(input, output) {
   )
   
 }   
-
 
 shinyApp(ui = ui, server = server)
