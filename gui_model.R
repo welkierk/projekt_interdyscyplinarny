@@ -4,6 +4,10 @@ library(dplyr)
 library(DT)
 library(httr)
 library(shinythemes)
+library(ranger)
+library(mlr)
+library(osmar)
+library(tuneRanger)
 timeout(1000)
 source("model_from_random_points_combined.R")
 
@@ -99,13 +103,13 @@ server <- function(input, output) {
     ymin <- input$min_lon_deg  
     ymax <- input$max_lon_deg
     
-    # result <- predict_from_area(xmin, ymin, xmax, ymax, n = 10)
-    # prediction <- head(result[order(as.vector(result$score), decreasing=TRUE),],5)
+    result <- predict_from_area(xmin, ymin, xmax, ymax, n = 10)
+    prediction <- head(result[order(as.vector(result$score), decreasing=TRUE),],5)
     
     # testowo wstawilam tutaj dowolna ramke, bo moje RStudio nie wspolpracuje z modelem
     # na potrzeby projektu wystarczy odkomentowac to co jest wyzej
-    prediction <- head(iris) 
-    output$table <- DT::renderDataTable(prediction)
+    #prediction <- head(iris) 
+    #output$table <- DT::renderDataTable(prediction)
     
   }
   onclick("btn", renderTab)
@@ -136,5 +140,6 @@ server <- function(input, output) {
   )
   
 }   
+
 
 shinyApp(ui = ui, server = server)

@@ -109,7 +109,9 @@ predict_from_area <- function(xmin, ymin, xmax, ymax, n=100){
   dt$Nazwa <- substr(dt$Nazwa,1,nchar(dt$Nazwa)-4)
   dt <- dt %>% distinct(Nazwa, .keep_all=TRUE)
   x <- as.data.frame(x)
-  wynik <- x %>% left_join(dt, by=c("gmina"="Nazwa"))
+  #####
+  wynik <- x %>% left_join(dt, by=c("gmina"="Nazwa")) #potencjalne miejsce błędu w shiny: Error in : Can't join on 'Nazwa' x 'gmina' because of incompatible types (character / numeric)
+  ######
   wynik <- na.omit(wynik)
   ncol(wynik[, 8:ncol(wynik)])
   train <- read.csv("train.csv")
