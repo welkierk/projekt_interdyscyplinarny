@@ -5,8 +5,9 @@ library(dplyr)
 library(ranger)
 library(tuneRanger)
 
-df <- read.csv("../model2/dochody_i_ludnosc.csv", encoding = "UTF-8")
-train <- read.csv("../model2/train.csv")
+#setwd("C:/Users/koste/Studia/07/PI/github/projekt_interdyscyplinarny")
+df <- read.csv("model2/dochody_i_ludnosc.csv", encoding = "UTF-8")
+train <- read.csv("model2/train.csv")
 t2 <- train %>% left_join(df, by = c("id" = "Kod"))
 t3 <- subset(t2, select = -c(X.x, gmina, powiat, id, longitude, latitude, X.y, Nazwa))
 t3 <- na.omit(t3)
@@ -272,9 +273,14 @@ rownames(info) <- NULL
 colnames(info) = c("gm_miej", "theirScore", "score", "ourScore")
 
 info$diff <- abs(as.numeric(info$ourScore) - as.numeric(info$theirScore))
-info$isGood <- ifelse(info$diff <= 60, 1, 0)
+info$isGood <- ifelse(info$diff <= 40, 1, 0)
+info
 
 cat("Percent of \"well calculated\":", mean(info$isGood) * 100, "%")
 cat("Mean difference between our place in ranking and WUT's experts:", mean(info$diff))
 print("Summary of diff output column")
 summary(info$diff)
+
+ggplot(info, aes(theirScore, ourScore)) +
+  geom_point() +
+  geom_abline()
