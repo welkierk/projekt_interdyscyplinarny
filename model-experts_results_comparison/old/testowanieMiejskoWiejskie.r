@@ -4,8 +4,8 @@ library(mlr)
 library(ranger)
 library(tuneRanger)
 
-dt <- read.csv("../model2/dochody_i_ludnosc.csv", encoding = "UTF-8")
-train <- read.csv("../model2/train.csv")
+dt <- read.csv("../../model2/dochody_i_ludnosc.csv", encoding = "UTF-8")
+train <- read.csv("../../model2/train.csv")
 t2 <- train %>% left_join(dt, by=c("id" = "Kod"))
 t3 <- subset(t2, select = -c(X.x, gmina, powiat, id, longitude, latitude, X.y, Nazwa))
 t3 <- na.omit(t3)
@@ -674,3 +674,7 @@ mean(info$`1:616`)
 summary(info$`1:616`)
 
 info
+
+ggplot(info, aes(nb, `1:616`)) +
+  geom_point()
+  #geom_abline()
