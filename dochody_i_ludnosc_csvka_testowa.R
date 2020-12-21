@@ -1,3 +1,5 @@
+source("./photo_function.R")
+
 options(stringsAsFactors = F)
 des_classes <- rep("numeric", 10)
 names(des_classes) <- c("rok_2010", "rok_2011", "rok_2012", "rok_2013", "rok_2014", "rok_2015", "rok_2016", "rok_2017", "rok_2018", "rok_2019")
@@ -87,4 +89,16 @@ gminy_dane
 gminy_dane_stare <- read.csv("dochody_i_ludnosc_2.csv", fileEncoding='Windows-1250')
 nrow(gminy_dane_stare)
 gminy_dane <- merge.data.frame(gminy_dane, gminy_dane_stare[,c("Kod", "longitude", "latitude")], by="Kod")
-write.csv(gminy_dane, "dochody_i_ludnosc_2017-2019.csv")
+
+water <- c()
+vegetation <- c()
+for (i in 1:nrow(gminy_dane)) {
+  photo <- data_frame_from_photos(lat = gminy_dane$latitude[i], lon = gminy_dane$longitude[i])
+  water[i] <- photo[1,1]
+  vegetation[i] <- photo[1,2]
+  print(i)
+}
+
+data <- cbind(gminy_dane, water, vegetation)
+
+write.csv(data, "dochody_i_ludnosc_2017-2019.csv")

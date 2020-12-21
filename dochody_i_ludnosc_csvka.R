@@ -83,5 +83,9 @@ dochody_wzrost_merged <- merge.data.frame(dochody_wzrost_merged, dochody_uslugi[
 gminy_dane <- merge.data.frame(dochody_wzrost_merged, ludnosc_wzrost_merged[,-2], by = "Kod")
 gminy_dane[gminy_dane==Inf]<- NA
 
-gminy_dane
-write.csv(gminy_dane, "dochody_i_ludnosc.csv")
+gminy_dane_stare <- read.csv("dochody_i_ludnosc_2017-2019.csv", fileEncoding='Windows-1250')
+data <- cbind(gminy_dane, gminy_dane_stare$longitude, gminy_dane_stare$latitude, gminy_dane_stare$water, gminy_dane_stare$vegetation)
+colnames(data)[31:34] <- c("longitude", "latitude", "water", "vegetation")
+
+write.csv(data, "dochody_i_ludnosc_2.csv")
+
