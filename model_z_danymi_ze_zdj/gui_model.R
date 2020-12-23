@@ -1,10 +1,15 @@
 library(shiny)
 library(shinyjs)
+library(shinythemes)
+library(shinyWidgets)
+
+library(leaflet)
+library(leaflet.extras)
+
 library(dplyr)
 library(DT)
 library(httr)
-library(shinythemes)
-library(shinyWidgets)
+
 timeout(1000)
 source("model_from_random_points_combined.R")
 
@@ -59,22 +64,13 @@ ui <- fluidPage(
     downloadButton('downloadReport'),
     br(),
     br(),
-    leaflet() %>%
-      addProviderTiles("CartoDB",
-                       options = providerTileOptions(minZoom = 5, maxZoom = 8)) %>%
-      setView(lng = 19.356389,
-              lat = 52.196667, # location of "Nowa Wies" - exact geodetic center of Poland
-              zoom = 6) %>%
-      setMaxBounds(lng1 = 14, lat1 = 49,
-                   lng2 = 24.5, lat2 = 55.5) 
-    ,
+    leafletOutput("mymap", height = 300),
     h4("Model predictions"),
     DT::dataTableOutput('table')
   ),
   useShinyjs()
 )
 server <- function(input, output) {
-  
   observeEvent(input$dataChoice, {
     if(input$dataChoice == "Coordinates"){
       enable('min_lat_deg') 
@@ -101,6 +97,49 @@ server <- function(input, output) {
   })
   output$value <- renderPrint({ numbers() })
   
+  ### MAP
+  output$mymap <- renderLeaflet({
+    leaflet() %>% # initializing a leaflet map
+      addProviderTiles("CartoDB", # map theme - to be changed =
+                     options = providerTileOptions(minZoom = 5, maxZoom = 8)) %>%
+      setView(lng = 19.356389,
+            lat = 52.196667, # location of "Nowa Wies" - exact geodetic center of Poland
+            zoom = 6) %>%
+      setMaxBounds(lng1 = 14, lat1 = 49,
+                 lng2 = 24.5, lat2 = 55.5) %>%
+      addRectangles(input$min_lat_deg, input$min_lon_deg,
+                    input$max_lat_deg, input$max_lon_deg, # dobra skladnia, nie dziala wczyt
+                    fillColor = "transparent") %>%
+      addDrawToolbar( # a feature to draw rectangles and change the value of input coords
+        targetGroup='draw',
+        editOptions = editToolbarOptions(selectedPathOptions = selectedPathOptions()),
+        polylineOptions = FALSE,
+        polygonOptions = FALSE,
+        circleOptions = FALSE,
+        markerOptions = FALSE,
+        circleMarkerOptions = FALSE,
+        singleFeature = TRUE) %>%
+      addLayersControl(overlayGroups = c('draw'), options =
+                         layersControlOptions(collapsed=FALSE))
+  })
+  
+  observeEvent(input$mymap_draw_new_feature,{
+    feature <- input$mymap_draw_new_feature
+    
+    rect_lats <- c(feature$geometry$coordinates[[1]][[1]][[1]],
+                   feature$geometry$coordinates[[1]][[2]][[1]],
+                   feature$geometry$coordinates[[1]][[3]][[1]],
+                   feature$geometry$coordinates[[1]][[4]][[1]])
+    rect_longs <- c(feature$geometry$coordinates[[1]][[1]][[2]],
+                   feature$geometry$coordinates[[1]][[2]][[2]],
+                   feature$geometry$coordinates[[1]][[3]][[2]],
+                   feature$geometry$coordinates[[1]][[4]][[2]])
+    rect_min_lat_deg <- min(rect_lats)
+    rect_max_lat_deg <- max(rect_lats)
+    rect_min_lon_deg <- min(rect_lats)
+    rect_max_lon_deg <- max(rect_lats)
+    # TODO: rect_* wrzucic na koordynaty na serwerze (wtedy tez sie zaktualizuje ten drugi)
+  })
   
   # Call Onclick
   renderTab <- function(){
