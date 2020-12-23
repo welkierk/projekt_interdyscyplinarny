@@ -59,8 +59,17 @@ ui <- fluidPage(
     downloadButton('downloadReport'),
     br(),
     br(),
+    leaflet() %>%
+      addProviderTiles("CartoDB",
+                       options = providerTileOptions(minZoom = 5, maxZoom = 8)) %>%
+      setView(lng = 19.356389,
+              lat = 52.196667, # location of "Nowa Wies" - exact geodetic center of Poland
+              zoom = 6) %>%
+      setMaxBounds(lng1 = 14, lat1 = 49,
+                   lng2 = 24.5, lat2 = 55.5) 
+    ,
     h4("Model predictions"),
-    DT::dataTableOutput('table'),
+    DT::dataTableOutput('table')
   ),
   useShinyjs()
 )
