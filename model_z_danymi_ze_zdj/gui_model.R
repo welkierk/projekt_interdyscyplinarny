@@ -271,7 +271,7 @@ server <- function(input, output, session) {
     output$table <- DT::renderDataTable(prediction,
                                         colnames = c('Score', 'Gmina', 'Longitude', 'Latitude'))
     remove_modal_spinner()
-    #enable("btn")
+    enable("btn")
     
   }
   onclick("btn", renderTab)
