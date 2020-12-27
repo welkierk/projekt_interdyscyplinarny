@@ -2,6 +2,7 @@ library(shiny)
 library(shinyjs)
 library(shinythemes)
 library(shinyWidgets)
+library(shinybusy)
 
 library(leaflet)
 library(leaflet.extras)
@@ -21,10 +22,11 @@ ui <- fluidPage(
   titlePanel("Criterions "),
   sidebarPanel(
     radioButtons(inputId = "dataChoice", label = "Specify the location preferences",
-                 choices = c("Regions","Coordinates"), inline = TRUE),
+                 choices = c("Coordinates", "Regions"), inline = TRUE, selected = "Coordinates"),
     
     fluidRow(selectInput(inputId = "regions", label = "Regions selection",
-                         choices = list(Polska = c("dolnoslaskie" = "D",
+                         choices = list(Polska = c("default" = "none",
+                                                   "dolnoslaskie" = "D",
                                                    "kujawsko-pomorskie" = "C",
                                                    "lubelskie" = "L",
                                                    "lubuskie" = "F",
@@ -39,7 +41,7 @@ ui <- fluidPage(
                                                    "swietokrzyskie" = "T",
                                                    "warminsko-mazurskie" = "N",
                                                    "wielkopolskie"= "P",
-                                                   "zachodniopomorskie" = "Z")), selected = NULL, multiple = TRUE)),
+                                                   "zachodniopomorskie" = "Z")), selected = "none", multiple = FALSE)),
     
     h5("Coordinates selection"),
     numericInput("min_lat_deg", label = "Minimum latitude (degrees)", 
@@ -53,9 +55,6 @@ ui <- fluidPage(
     
     verbatimTextOutput("value"),
     
-    fluidRow(selectInput(inputId = "resources", label = "Resources proximity preferences",
-                         choices = list("Rivers" = "rivers", "Crops" = "crops", "Forests" = "forests", "Motorways" = "motorways"), 
-                         selected = NULL, multiple = TRUE)),
     actionButton("btn", "Predict")
     
   ),
@@ -70,10 +69,11 @@ ui <- fluidPage(
   ),
   useShinyjs()
 )
-server <- function(input, output) {
+server <- function(input, output, session) {
+  
   observeEvent(input$dataChoice, {
     if(input$dataChoice == "Coordinates"){
-      enable('min_lat_deg') 
+      enable('min_lat_deg')
       enable('max_lat_deg')
       enable('min_lon_deg')
       enable('max_lon_deg')
@@ -86,6 +86,113 @@ server <- function(input, output) {
       disable('max_lon_deg')
       enable('regions')
     }})
+  
+  observeEvent(input$regions, {
+    if (input$regions == "D") {
+      updateNumericInput(session = session, "min_lat_deg", value = 15.00565)
+      updateNumericInput(session = session, "max_lat_deg", value = 17.775915)
+      updateNumericInput(session = session, "min_lon_deg", value = 50.137525)
+      updateNumericInput(session = session, "max_lon_deg", value = 51.811374)
+    }
+    if (input$regions == "C") {
+      updateNumericInput(session = session, "min_lat_deg", value = 17.226259)
+      updateNumericInput(session = session, "max_lat_deg", value = 19.798648)
+      updateNumericInput(session = session, "min_lon_deg", value = 52.324639)
+      updateNumericInput(session = session, "max_lon_deg", value = 53.777326)
+    }
+    if (input$regions == "L") {
+      updateNumericInput(session = session, "min_lat_deg", value = 21.64549)
+      updateNumericInput(session = session, "max_lat_deg", value = 24.195892)
+      updateNumericInput(session = session, "min_lon_deg", value = 50.292191)
+      updateNumericInput(session = session, "max_lon_deg", value = 52.284332)
+    }
+    if (input$regions == "F") {
+      updateNumericInput(session = session, "min_lat_deg", value = 14.455995)
+      updateNumericInput(session = session, "max_lat_deg", value = 16.456741)
+      updateNumericInput(session = session, "min_lon_deg", value = 51.374567)
+      updateNumericInput(session = session, "max_lon_deg", value = 53.109896)
+    }
+    if (input$regions == "E") {
+      updateNumericInput(session = session, "min_lat_deg", value = 18.105708)
+      updateNumericInput(session = session, "max_lat_deg", value = 20.65611)
+      updateNumericInput(session = session, "min_lon_deg", value = 50.878127)
+      updateNumericInput(session = session, "max_lon_deg", value = 52.405142)
+    }
+    if (input$regions == "K") {
+      updateNumericInput(session = session, "min_lat_deg", value = 19.161047)
+      updateNumericInput(session = session, "max_lat_deg", value = 21.447614)
+      updateNumericInput(session = session, "min_lon_deg", value = 49.227688)
+      updateNumericInput(session = session, "max_lon_deg", value = 50.502291)
+    }
+    if (input$regions == "W") {
+      updateNumericInput(session = session, "min_lat_deg", value = 19.205019)
+      updateNumericInput(session = session, "max_lat_deg", value = 23.052609)
+      updateNumericInput(session = session, "min_lon_deg", value = 50.975075)
+      updateNumericInput(session = session, "max_lon_deg", value = 53.503772)
+    }
+    if (input$regions == "O") {
+      updateNumericInput(session = session, "min_lat_deg", value = 16.984406)
+      updateNumericInput(session = session, "max_lat_deg", value = 18.710325)
+      updateNumericInput(session = session, "min_lon_deg", value = 49.980923)
+      updateNumericInput(session = session, "max_lon_deg", value = 51.166966)
+    }
+    if (input$regions == "R") {
+      updateNumericInput(session = session, "min_lat_deg", value = 21.20393)
+      updateNumericInput(session = session, "max_lat_deg", value = 23.545463)
+      updateNumericInput(session = session, "min_lon_deg", value = 49.010515)
+      updateNumericInput(session = session, "max_lon_deg", value = 50.807345)
+    }
+    if (input$regions == "B") {
+      updateNumericInput(session = session, "min_lat_deg", value = 21.579532)
+      updateNumericInput(session = session, "max_lat_deg", value = 24.107948)
+      updateNumericInput(session = session, "min_lon_deg", value = 52.324639)
+      updateNumericInput(session = session, "max_lon_deg", value = 54.408741)
+    }
+    if (input$regions == "G") {
+      updateNumericInput(session = session, "min_lat_deg", value = 16.764548)
+      updateNumericInput(session = session, "max_lat_deg", value = 19.622758)
+      updateNumericInput(session = session, "min_lon_deg", value = 53.490701)
+      updateNumericInput(session = session, "max_lon_deg", value = 54.853885)
+    }
+    if (input$regions == "S") {
+      updateNumericInput(session = session, "min_lat_deg", value = 18.083663)
+      updateNumericInput(session = session, "max_lat_deg", value = 19.974479)
+      updateNumericInput(session = session, "min_lon_deg", value = 49.376673)
+      updateNumericInput(session = session, "max_lon_deg", value = 51.091125)
+    }
+    if (input$regions == "T") {
+      updateNumericInput(session = session, "min_lat_deg", value = 19.688716)
+      updateNumericInput(session = session, "max_lat_deg", value = 21.931311)
+      updateNumericInput(session = session, "min_lon_deg", value = 50.165683)
+      updateNumericInput(session = session, "max_lon_deg", value = 51.347126)
+    }
+    if (input$regions == "N") {
+      updateNumericInput(session = session, "min_lat_deg", value = 19.248992)
+      updateNumericInput(session = session, "max_lat_deg", value = 22.854733)
+      updateNumericInput(session = session, "min_lon_deg", value = 53.136267)
+      updateNumericInput(session = session, "max_lon_deg", value = 54.408741)
+    }
+    if (input$regions == "P") {
+      updateNumericInput(session = session, "min_lat_deg", value = 15.819141)
+      updateNumericInput(session = session, "max_lat_deg", value = 19.183033)
+      updateNumericInput(session = session, "min_lon_deg", value = 51.168365)
+      updateNumericInput(session = session, "max_lon_deg", value = 53.673324)
+    }
+    if (input$regions == "Z") {
+      updateNumericInput(session = session, "min_lat_deg", value = 14.192174)
+      updateNumericInput(session = session, "max_lat_deg", value = 16.984424)
+      updateNumericInput(session = session, "min_lon_deg", value = 52.605758)
+      updateNumericInput(session = session, "max_lon_deg", value = 54.61284)
+    }
+    if (input$regions == "none") {
+      updateNumericInput(session = session, "min_lat_deg", value = 20.5)
+      updateNumericInput(session = session, "max_lat_deg", value = 21)
+      updateNumericInput(session = session, "min_lon_deg", value = 52.8)
+      updateNumericInput(session = session, "max_lon_deg", value = 53.5)
+    }
+    
+    
+  })
   
   numbers <- reactive({
     shiny::validate(
@@ -101,12 +208,12 @@ server <- function(input, output) {
   output$mymap <- renderLeaflet({
     leaflet() %>% # initializing a leaflet map
       addProviderTiles("CartoDB", # map theme - to be changed =
-                     options = providerTileOptions(minZoom = 5, maxZoom = 8)) %>%
+                       options = providerTileOptions(minZoom = 5, maxZoom = 8)) %>%
       setView(lng = 19.356389,
-            lat = 52.196667, # location of "Nowa Wies" - exact geodetic center of Poland
-            zoom = 6) %>%
+              lat = 52.196667, # location of "Nowa Wies" - exact geodetic center of Poland
+              zoom = 6) %>%
       setMaxBounds(lng1 = 14, lat1 = 49,
-                 lng2 = 24.5, lat2 = 55.5) %>%
+                   lng2 = 24.5, lat2 = 55.5) %>%
       addRectangles(input$min_lat_deg, input$min_lon_deg,
                     input$max_lat_deg, input$max_lon_deg, # dobra skladnia, nie dziala wczyt
                     fillColor = "transparent") %>%
@@ -131,18 +238,28 @@ server <- function(input, output) {
                    feature$geometry$coordinates[[1]][[3]][[1]],
                    feature$geometry$coordinates[[1]][[4]][[1]])
     rect_longs <- c(feature$geometry$coordinates[[1]][[1]][[2]],
-                   feature$geometry$coordinates[[1]][[2]][[2]],
-                   feature$geometry$coordinates[[1]][[3]][[2]],
-                   feature$geometry$coordinates[[1]][[4]][[2]])
-    rect_min_lat_deg <- min(rect_lats)
-    rect_max_lat_deg <- max(rect_lats)
-    rect_min_lon_deg <- min(rect_lats)
-    rect_max_lon_deg <- max(rect_lats)
+                    feature$geometry$coordinates[[1]][[2]][[2]],
+                    feature$geometry$coordinates[[1]][[3]][[2]],
+                    feature$geometry$coordinates[[1]][[4]][[2]])
+    updateNumericInput(session = session, "min_lat_deg", value = min(rect_lats))
+    updateNumericInput(session = session, "max_lat_deg", value = max(rect_lats))
+    updateNumericInput(session = session, "min_lon_deg", value = min(rect_longs))
+    updateNumericInput(session = session, "max_lon_deg", value = max(rect_longs))
+
     # TODO: rect_* wrzucic na koordynaty na serwerze (wtedy tez sie zaktualizuje ten drugi)
   })
   
+  
   # Call Onclick
   renderTab <- function(){
+    
+    disable("btn")
+    show_modal_spinner(
+     spin = "cube-grid",
+     text = "Please wait. Calculation in progress...",
+     color = "#6B8EB7"
+   )
+    
     xmin <- input$min_lat_deg
     xmax <- input$max_lat_deg 
     ymin <- input$min_lon_deg  
@@ -153,6 +270,8 @@ server <- function(input, output) {
     
     output$table <- DT::renderDataTable(prediction,
                                         colnames = c('Score', 'Gmina', 'Longitude', 'Latitude'))
+    remove_modal_spinner()
+    #enable("btn")
     
   }
   onclick("btn", renderTab)
