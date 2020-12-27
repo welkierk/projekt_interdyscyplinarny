@@ -246,7 +246,6 @@ server <- function(input, output, session) {
     updateNumericInput(session = session, "min_lon_deg", value = min(rect_longs))
     updateNumericInput(session = session, "max_lon_deg", value = max(rect_longs))
 
-    # TODO: rect_* wrzucic na koordynaty na serwerze (wtedy tez sie zaktualizuje ten drugi)
   })
   
   
