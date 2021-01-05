@@ -50,7 +50,7 @@ dane_ze_wspol <- function(wektor_longitude, wektor_latitude){
   stopifnot(length(wektor_longitude) == length(wektor_latitude))
   
   register_google(key = "AIzaSyDzpUawTQC4I_Sru1G0EkgcgbsJ9uKAt2I", write = TRUE)
-  tb <- read.csv("kody.csv", header = TRUE, row.names=NULL, sep = ";", encoding = "UTF-8")
+  tb <- read.csv("kody.csv", header = TRUE, row.names=NULL, sep = ";", encoding = "Windows-1250")
   tb <- unique(tb[,c("KOD.POCZTOWY","POWIAT")])
   random_longitude <- wektor_longitude
   random_latitude <- wektor_latitude
@@ -70,13 +70,13 @@ dane_ze_wspol <- function(wektor_longitude, wektor_latitude){
     d1 <- random_longitude[i]
     d2 <- random_latitude[i]
     address <- revgeocode(c(d1, d2), output="all")
-    df <- str_match(address$results, regex("Gmina [^\"]*"))
+    df <- str_match(address$results, regex("[^\"]+ County"))
     element_gmina <- df[!is.na(df)]
     df2 <- str_match(address, regex("[0-9]{2}-[0-9]{3}"))
     element_kod <- df2[!is.na(df2)]
     element_powiat <- tb[tb$KOD.POCZTOWY == element_kod,"POWIAT"]
     if (!identical(element_gmina, character(0)) & !identical(element_kod, character(0)) & !identical(element_powiat, character(0))){
-      gminy[results_element_add] <- paste0("gmina ", substr(element_gmina, 7, nchar(element_gmina)))
+      gminy[results_element_add] <- paste0("", substr(element_gmina,1,nchar(element_gmina)-7))
       longitude[results_element_add] <- random_longitude[i]
       latitude[results_element_add] <- random_latitude[i]
       postal_codes[results_element_add] <- element_kod
