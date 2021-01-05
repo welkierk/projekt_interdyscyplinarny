@@ -56,7 +56,7 @@ for(gmina in all_gminas){
   current_type <- gminas_types[which]
   print(paste0("Analyzing gminas type: ", current_type))
   gmina <- gmina %>%
-    select(-c('Województwo', 'Powiat')) %>%
+    select(-'Województwo') %>%
     right_join(resultFiltered, by = c("Gmina" = "name")) %>%
     na.omit()
   nOfRows <- nrow(gmina)
@@ -71,7 +71,8 @@ for(gmina in all_gminas){
   thisTypesDevOrNot <- gmina %>%
     mutate(score = ifelse(score <= 0.5, 1, 0),
            gminaType = current_type) %>%
-    select(-c(our,their))
+    select(-c(our,their)) %>%
+    rename(powiat = Powiat)
   #print(sample_n(gmina, 10))
   ourDevNotDevResults <- rbind(ourDevNotDevResults, thisTypesDevOrNot)
   
@@ -79,4 +80,5 @@ for(gmina in all_gminas){
 }
 
 #print(ourDevNotDevResults)
-write.csv2(ourDevNotDevResults, "gminasDevByModel.csv", sep = ";")
+write.csv2(ourDevNotDevResults, "gminasDevByModel.csv")
+
