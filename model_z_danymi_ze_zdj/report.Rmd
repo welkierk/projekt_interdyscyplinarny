@@ -1,0 +1,56 @@
+---
+title: "Report"
+author: "Agata Makarewicz"
+date: "4 01 2021"
+params:
+  table: 'NULL'
+  lat_min: 'NULL' 
+  lat_max: 'NULL'
+  lng_min: 'NULL'
+  lng_max: 'NULL' 
+always_allow_html: true
+header-includes:
+   - \usepackage{float}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(kableExtra)
+library(knitr)
+library(dplyr)
+library(leaflet)
+```
+
+## Table
+
+```{r}
+table <- params$table
+colnames(table) <- c('Wynik', 'Gmina', 'Długość geogr.', 'Szerokość geogr.')
+kable(table, align = "c") %>%
+  kable_styling() %>%
+  column_spec(1, bold = T) %>%
+  row_spec(0, bold = T, color = "white", background = "#7eb6e7")
+
+```
+
+## Map
+
+```{r}
+temp <- t(cbind(table[,3],table[,4]))
+coord <- data.frame(lat=temp[2,], lng=temp[1,])
+
+df <- data.frame(lat = as.numeric(coord$lat),
+                 lng = as.numeric(coord$lng))
+zoom <- abs(ceiling(log2(max(params$lng_max - params$lng_min, params$lat_max - params$lat_min) / 256))) +1
+df %>%
+  leaflet(options = leafletOptions(minZoom = zoom, maxZoom = zoom+3)) %>%
+    addTiles()%>%
+  addRectangles(params$lng_min, params$lat_min,
+                   params$lng_max, params$lat_max, fillColor = "transparent") %>%
+  fitBounds(lng1 = params$lng_min, lat1 = params$lat_min,
+                   lng2 = params$lng_max, lat2 = params$lat_max) %>%
+    setMaxBounds(lng1 = params$lng_min, lat1 = params$lat_min,
+                   lng2 = params$lng_max, lat2 = params$lat_max) %>%
+  addMarkers()
+```
+

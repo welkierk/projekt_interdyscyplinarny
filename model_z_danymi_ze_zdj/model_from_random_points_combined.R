@@ -133,7 +133,7 @@ predict_from_area <- function(xmin, ymin, xmax, ymax, n=100){
   result <- result %>% distinct(gmina, .keep_all = TRUE) %>% arrange(desc(score))
   result$score %>% round(2)
   
-  return(result)
+  results <- list(model = res_ranger$model, result = result)
 }
 
 
