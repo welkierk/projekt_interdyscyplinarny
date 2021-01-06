@@ -1,5 +1,5 @@
 #set path if needed
-#setwd("C:/Users/koste/Studia/07/PI/github/projekt_interdyscyplinarny/classification_if_gminas_developed")
+#setwd("C:/Users/koste/Studia/07/PI/github/projekt_interdyscyplinarny/model_test")
 library(dplyr)
 library(randomForest)
 library(mlr)
