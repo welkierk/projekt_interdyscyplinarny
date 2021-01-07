@@ -10,7 +10,7 @@ library(mlr)
 library(ranger)
 library(tuneRanger)
 library(stringi)
-
+library(DALEX)
 
 
 # FUNKCJA ZWRACAJACA WSPOLRZEDNE LOSOWYCH PUNKTOW LEZACYCH NA DROGACH
@@ -121,10 +121,12 @@ predict_from_area <- function(xmin, ymin, xmax, ymax, n=100){
   
   nazwy <- wynik[,c(1,4,5)]
   predictions <- predict(rg, newdata=wynik[, 8:ncol(wynik)])
+  # explainer <- explain(rg, predictions, y = ???)
   result <- as.data.frame(cbind(as.numeric(predictions$data$prob.1), nazwy))
   colnames(result)[1]<-c("score")
   result <- result %>% distinct(gmina, .keep_all = TRUE) %>% arrange(desc(score))
   result$score %>% round(2)
   
   results <- list(model = rg, result = result)
+  # results <- list(model = res_ranger$model, result = result, explainer = explainer, data = wynik)
 }

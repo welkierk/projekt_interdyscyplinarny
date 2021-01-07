@@ -8,9 +8,12 @@ params:
   lat_max: 'NULL'
   lng_min: 'NULL'
   lng_max: 'NULL' 
+  explainer: 'NULL'
+  data: 'NULL'
 always_allow_html: true
 header-includes:
    - \usepackage{float}
+   - \usepackage[polish]{babel}
 ---
 
 ```{r setup, include=FALSE}
@@ -19,6 +22,9 @@ library(kableExtra)
 library(knitr)
 library(dplyr)
 library(leaflet)
+library(DALEX)
+library(ranger)
+Sys.setlocale(category = "LC_ALL", locale = "Polish")
 ```
 
 ## Table
@@ -54,3 +60,19 @@ df %>%
   addMarkers(popup = label)
 ```
 
+## Explain
+
+```{r breakdown, eval=FALSE}
+explainer <- params$explainer
+
+# break down plot for the best
+c(lng, lat) <- table[1,3:4]
+break_down <- predict_parts(explainer, new_observation = params$data[]) # wyciągnąć z data tą obserwację co naj 
+plot(break_down)
+```
+
+```{r importance, eval=FALSE}
+# variable importance
+var_important <- variable_importance(explainer, loss_function = loss_root_mean_square)
+plot(var_important)
+```

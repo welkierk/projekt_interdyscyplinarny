@@ -59,8 +59,8 @@ ui <- fluidPage(
     
   ),
   mainPanel(
-    radioButtons('format', 'Document format', c('HTML', 'PDF'), inline = TRUE),
-    downloadButton('downloadReport'),
+    # radioButtons('format', 'Document format', c('HTML', 'PDF'), inline = TRUE),
+    downloadButton('downloadReport', label = "Download HTML report"),
     br(),
     br(),
     leafletOutput("mymap", height = 300),
@@ -267,6 +267,8 @@ server <- function(input, output, session) {
     results <- predict_from_area(xmin, ymin, xmax, ymax, n = 50)
     model <<- results[[1]] # globalne
     result <<- results[[2]] # globalne
+    # explainer <<- results[[3]]
+    # data <<- results[[4]]
     prediction <<- head(result[order(as.vector(result$score), decreasing=TRUE),],5) # global
     
     output$table <- DT::renderDataTable(prediction,
@@ -278,35 +280,27 @@ server <- function(input, output, session) {
   onclick("btn", renderTab)
   
   output$downloadReport <- downloadHandler(
-    filename = function() {
-      paste('Report', sep = '.', switch(
-        input$format, HTML = 'html', PDF = 'pdf'
-      ))
-    },
+    # filename = function() {
+    #   paste('Report', sep = '.', switch(
+    #     input$format, HTML = 'html', PDF = 'pdf'
+    #   ))
+    # },
+    filename = "Report.html",
     
-    # filename = "report.html",
-    
-    # Trzeba sie zastanowic co wrzucic do zawartosci raportu
     content = function(file) {
-      # src <- normalizePath('report.Rmd')
-      # 
-      # # temporarily switch to the temp dir, in case you do not have write
-      # # permission to the current working directory
-      # owd <- setwd(tempdir())
-      # on.exit(setwd(owd))
-      # 
-      # tempReport <- paste0(tempdir(), "\\report.Rmd")
-      # file.copy("report.Rmd", tempReport, overwrite = TRUE)
-      # 
+
       library(rmarkdown)
-      out <- render('report.Rmd', switch(
-        input$format,
-        HTML = html_document(), PDF = pdf_document()),
+      out <- render('report.Rmd', html_document(),
+                    #switch( input$format,
+                    #        HTML = html_document(), PDF = pdf_document()),
         params = list(table = prediction, 
                       lat_min = input$min_lat_deg, 
                       lat_max = input$max_lat_deg, 
                       lng_min = input$min_lng_deg, 
-                      lng_max = input$max_lng_deg))
+                      lng_max = input$max_lng_deg
+                      #, explainer = explainer,
+                      # data = data
+                      ))
       file.rename(out, file)
       
       # rmarkdown::render("report.Rmd", output_file = file)
