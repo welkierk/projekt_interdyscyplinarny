@@ -3,10 +3,10 @@
 library(dplyr)
 library(randomForest)
 library(mlr)
-library(dplyr)
 library(ranger)
 library(tuneRanger)
 library(ggplot2)
+set.seed(1613)
 
 # data for regression model
 df <- read.csv("../dochody_i_ludnosc.csv", encoding = "UTF-8") # 2522 gminas
@@ -52,6 +52,7 @@ gminas_types <- c("cities", "urban", "urban_rural", "rural")
 
 which <- 1
 ourDevNotDevResults <- data.frame()
+ourDevProbResults <- data.frame()
 for(gmina in all_gminas){
   current_type <- gminas_types[which]
   print(paste0("Analyzing gminas type: ", current_type))
@@ -69,16 +70,23 @@ for(gmina in all_gminas){
            score = round(as.double(score), 5))
   
   thisTypesDevOrNot <- gmina %>%
-    mutate(score = ifelse(score <= 0.5, 1, 0),
+    mutate(score = ifelse(score <= 0.5, 0, 1),
            gminaType = current_type) %>%
     select(-c(our,their)) %>%
     rename(powiat = Powiat)
+  
+  thisTypeDevProb <- gmina %>%
+    mutate(gminaType = current_type) %>%
+    select(-c(our,their)) %>%
+    rename(powiat = Powiat)
+  print(sample_n(thisTypeDevProb, 10))
   #print(sample_n(gmina, 10))
   ourDevNotDevResults <- rbind(ourDevNotDevResults, thisTypesDevOrNot)
+  ourDevProbResults <- rbind(ourDevProbResults, thisTypeDevProb)
   
   which <- which + 1
 }
 
 #print(ourDevNotDevResults)
-write.csv2(ourDevNotDevResults, "gminasDevByModel.csv")
-
+write.csv2(ourDevNotDevResults, "gminasDevClasByModel.csv")
+write.csv2(ourDevProbResults, "gminasDevRegByModel.csv")
