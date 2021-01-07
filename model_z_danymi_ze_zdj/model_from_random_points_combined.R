@@ -9,6 +9,7 @@ library(randomForest)
 library(mlr)
 library(ranger)
 library(tuneRanger)
+library(stringi)
 
 
 
@@ -48,9 +49,10 @@ random_points <- function(xmin, ymin, xmax, ymax){
 
 dane_ze_wspol <- function(wektor_longitude, wektor_latitude){
   stopifnot(length(wektor_longitude) == length(wektor_latitude))
-  
+  #mój kod API - mam bezpłatny limit na dość sporą liczbę zapytań, ale jest to ograniczona
+  #liczba, więc korzystajcie, ale nie róbcie bez potrzeby pętli z tysiącami adresów
   register_google(key = "AIzaSyDzpUawTQC4I_Sru1G0EkgcgbsJ9uKAt2I", write = TRUE)
-  tb <- read.csv("kody.csv", header = TRUE, row.names=NULL, sep = ";", encoding = "Windows-1250")
+  tb <- read.csv("kody.csv", header = TRUE, row.names=NULL, sep = ";", fileEncoding = "Windows-1250")
   tb <- unique(tb[,c("KOD.POCZTOWY","POWIAT")])
   random_longitude <- wektor_longitude
   random_latitude <- wektor_latitude
@@ -70,13 +72,14 @@ dane_ze_wspol <- function(wektor_longitude, wektor_latitude){
     d1 <- random_longitude[i]
     d2 <- random_latitude[i]
     address <- revgeocode(c(d1, d2), output="all")
-    df <- str_match(address$results, regex("[^\"]+ County"))
+    df <- str_match(address$results, regex("Gmina [^\"]*"))
     element_gmina <- df[!is.na(df)]
     df2 <- str_match(address, regex("[0-9]{2}-[0-9]{3}"))
     element_kod <- df2[!is.na(df2)]
     element_powiat <- tb[tb$KOD.POCZTOWY == element_kod,"POWIAT"]
     if (!identical(element_gmina, character(0)) & !identical(element_kod, character(0)) & !identical(element_powiat, character(0))){
-      gminy[results_element_add] <- paste0("", substr(element_gmina,1,nchar(element_gmina)-7))
+      gminy[results_element_add] <- paste0("", substr(element_gmina, 7, nchar(element_gmina)))
+      gminy[results_element_add] <- stri_trans_general(str = gminy[results_element_add], id = "Latin-ASCII")
       longitude[results_element_add] <- random_longitude[i]
       latitude[results_element_add] <- random_latitude[i]
       postal_codes[results_element_add] <- element_kod
@@ -89,7 +92,6 @@ dane_ze_wspol <- function(wektor_longitude, wektor_latitude){
       results_element_add <- results_element_add + 1
     }
   }
-  
   res <- cbind(as.character(gminy[1:results_element_add-1]), as.character(powiaty[1:results_element_add-1]), as.character(postal_codes[1:results_element_add-1]), as.character(longitude[1:results_element_add-1]), as.character(latitude[1:results_element_add-1]))
   return(res)
 }
@@ -105,35 +107,24 @@ predict_from_area <- function(xmin, ymin, xmax, ymax, n=100){
   lat <- points$Latitude
   x <- dane_ze_wspol(lon, lat)
   colnames(x) <- c("gmina", "powiat", "kod_poczt", "dlugosc", "szerokosc")
+  
   dt <- read.csv("dochody_i_ludnosc_2.csv", encoding = "Windows-1250")
   dt <- dt[, -c(32:33)]
   dt$Nazwa <- substr(dt$Nazwa,1,nchar(dt$Nazwa)-4)
+  dt$Nazwa <- stri_trans_general(str = dt$Nazwa, id = "Latin-ASCII")
   dt <- dt %>% distinct(Nazwa, .keep_all=TRUE)
   x <- as.data.frame(x)
   wynik <- x %>% left_join(dt, by=c("gmina"="Nazwa"))
   wynik <- na.omit(wynik)
-  ncol(wynik[, 8:ncol(wynik)])
-  train <- read.csv("new_train.csv")
-  train <- train[, -1]
   
-  t2 <- train %>% left_join(select(dt, -c(X, water, vegetation)), by=c("id" = "Kod"))
-
-  t3 <- subset(t2, select = -c(X, gmina, powiat, id, longitude, latitude, Nazwa))
-  t3 <- na.omit(t3)
-  
-  
-  classif_task_ <- makeClassifTask(data = t3, target = "wynik", positive = 1)
-  classif_lrn_4 <- makeLearner("classif.ranger", par.vals = list( "num.trees" = 2500), predict.type = "prob")
-  res_ranger <- tuneRanger(classif_task_, measure = list(gmean), num.threads = 6, num.trees = 2500)
+  rg <- readRDS("model.rds")
   
   nazwy <- wynik[,c(1,4,5)]
-  predictions <- predict(res_ranger$model, newdata=wynik[, 8:ncol(wynik)])
+  predictions <- predict(rg, newdata=wynik[, 8:ncol(wynik)])
   result <- as.data.frame(cbind(as.numeric(predictions$data$prob.1), nazwy))
   colnames(result)[1]<-c("score")
   result <- result %>% distinct(gmina, .keep_all = TRUE) %>% arrange(desc(score))
   result$score %>% round(2)
   
-  results <- list(model = res_ranger$model, result = result)
+  results <- list(model = rg, result = result)
 }
-
-
