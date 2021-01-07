@@ -12,7 +12,7 @@ library(MLmetrics)
 # data for regression model
 set.seed(420)
 df <- read.csv("../dochody_i_ludnosc.csv", encoding = "UTF-8") # 2521 gminas
-modelResults <- read.csv2("gminasDevClasByModel.csv") # 2046 gminas - developed (1) / undeveloped (0)
+modelResultsBin <- read.csv2("gminasDevClasByModel.csv") # 2046 gminas - developed (1) / undeveloped (0)
 modelResultsCont <- read.csv2("gminasDevRegByModel.csv")
 
 is_neg_inf_val <- (df == -Inf)
@@ -20,25 +20,26 @@ which_have_neg_infs <- which(apply(is_neg_inf_val, 1, any))
 df <- df[-which_have_neg_infs,]
 #nrow(df) # 2518
 
-merged <- modelResults %>% left_join(df, by = "X")
+mergedBin <- modelResultsBin %>% left_join(df, by = "X")
 mergedCont <- modelResultsCont %>% left_join(df, by = "X")
-#colnames(merged)
-main_df <- subset(merged, select = -c(X, gmina, powiat, gminaType, Kod))
-main_df <- na.omit(main_df)
-mainCont <- subset(mergedCont, select = -c(X, gmina, powiat, gminaType, Kod))
-mainCont <- na.omit(mainCont)
-#nrow(main_df) # 1680
-#colnames(main_df) # 28 feature columns, 1 target one (+Nazwa)
+#colnames(mergedBin)
+main_bin <- subset(mergedBin, select = -c(X, gmina, powiat, gminaType, Kod))
+main_bin <- na.omit(main_bin)
+main_cont <- subset(mergedCont, select = -c(X, gmina, powiat, gminaType, Kod))
+main_cont <- na.omit(main_cont)
+#nrow(main_bin) # 1680
+#colnames(main_bin) # 28 feature columns, 1 target one (+Nazwa)
 
-main_nrows <- nrow(main_df)
+main_nrows <- nrow(main_bin)
 train_set_size <- 0.75
 trainIds <- sort(sample(1:main_nrows, main_nrows * train_set_size)) # 1260
 testIds <- c(1:main_nrows)[!(c(1:main_nrows) %in% trainIds)] # 420
 
-train <- main_df[trainIds,]
+train <- main_bin[trainIds,]
 train_for_modeling <- subset(train, select = -Nazwa)
-test <- main_df[testIds,]
-testCont <- mainCont[testIds,]
+row.names(train_for_modeling) <- NULL
+test_bin <- main_bin[testIds,]
+test_cont <- main_cont[testIds,]
 
 # building a model
 classif_task <- makeClassifTask(data = train_for_modeling, target = "score", positive = 1)
@@ -46,12 +47,12 @@ classif_lrn <- makeLearner("classif.ranger", par.vals = list( "num.trees" = 2500
 res_ranger <- tuneRanger(classif_task, measure = list(gmean), num.threads = 6, num.trees = 2500)
 # uwaga!!! To wy¿ej na wiekszym zbiorze dluzej sie mieli (~20 minut?)
 
-row.names(test) <- NULL
-row.names(testCont) <- NULL
+row.names(test_bin) <- NULL
+row.names(test_cont) <- NULL
 
-gminy <- test[,c("Nazwa")]
+gminy <- test_bin[,c("Nazwa")]
 #gminy
-test_for_predicting <- subset(test, select = -Nazwa)
+test_for_predicting <- subset(test_bin, select = -Nazwa)
 X_test <- subset(test_for_predicting, select = -score)
 pred_ranger <- predict(res_ranger$model, newdata = X_test)
 result <- as.data.frame(cbind(as.numeric(pred_ranger$data$prob.1), gminy))
@@ -59,11 +60,11 @@ colnames(result) = c("score", "name")
 #print(result)
 result$scoreBin <- ifelse(result$score <= 0.5, 0, 1)
 
-yBin <- test$score
-yCont <- testCont$score
+yBin <- test_bin$score
+yCont <- test_cont$score
 predictedBin <- result$scoreBin
 predictedCont <- as.numeric(result$score)
-predBin <- prediction(predicted, y)
+predBin <- prediction(predictedBin, yBin)
 
 # BINARY
 ## 1. Accuracy
