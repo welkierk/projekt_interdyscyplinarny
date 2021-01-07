@@ -264,7 +264,7 @@ server <- function(input, output, session) {
     ymin <<- input$min_lat_deg  
     ymax <<- input$max_lat_deg
     
-    results <- predict_from_area(xmin, ymin, xmax, ymax, n = 5)
+    results <- predict_from_area(xmin, ymin, xmax, ymax, n = 50)
     model <<- results[[1]] # globalne
     result <<- results[[2]] # globalne
     prediction <<- head(result[order(as.vector(result$score), decreasing=TRUE),],5) # global
