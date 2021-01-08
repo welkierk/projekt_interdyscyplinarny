@@ -120,32 +120,36 @@ predict_from_area <- function(xmin, ymin, xmax, ymax, n=100){
   wynik <- x %>% left_join(dt, by=c("gmina"="Nazwa"))
   wynik <- na.omit(wynik)
   
-  rg <- readRDS("model.rds")
+  # train <- read.csv("new_train.csv")
+  # train <- train[, -1]
+  # 
+  # t2 <- train %>% left_join(select(dt, -c(X, water, vegetation)), by=c("id" = "Kod"))
+  # t3 <- subset(t2, select = -c(X, gmina, powiat, id, longitude, latitude, Nazwa))
+  # t3 <- na.omit(t3)
+  
+  klasy <- read.csv2("./klasy.csv")
+  data <- wynik %>% left_join(klasy, by = c("gmina" = "gmina"))
+  data_report <- data[,c(1,38,36,37,8:35)]
+  colnames(data_report)[1] <- "wynik"
+  data <- data[,c(38,36,37,8:35)]
+  colnames(data)[1] <- "wynik"
+  
+  # classif_task_ <- makeClassifTask(data = t3, target = "wynik", positive = 1)
+  # classif_lrn_4 <- makeLearner("classif.ranger", par.vals = list( "num.trees" = 2500), predict.type = "prob")
+  # res_ranger <- tuneRanger(classif_task_, measure = list(gmean), num.threads = 6, num.trees = 2500)
+  # model <- mlr::train(classif_lrn_4, classif_task_)
+  
+  rg <- readRDS("ranger.rds")
   
   nazwy <- wynik[,c(1,4,5)]
-  predictions <- predict(rg, newdata=wynik[, 8:ncol(wynik)])
-  result <- as.data.frame(cbind(as.numeric(predictions$data$prob.1), nazwy))
-  colnames(result)[1]<-c("score")
+  predictions <- predict(rg, data=wynik[, 8:ncol(wynik)])
+  result <- as.data.frame(cbind(as.numeric(predictions$predictions), nazwy))
+  colnames(result)[1] <- c("score")
   result <- result %>% distinct(gmina, .keep_all = TRUE) %>% arrange(desc(score))
   result$score %>% round(2)
   
-  # rozpaczliwa walka z objasnianiem predykcji
-  
-  # klasy <- read.csv2("./klasy.csv")
-  # data <- wynik %>% left_join(klasy, by = c("gmina" = "gmina"))
-  # data <- data[, c(1, 8:ncol(data))]
-  # classif_task_ <- makeClassifTask(data = t3, target = "wynik",
-  #                                  positive = 1)
-  # classif_lrn_4 <- makeLearner("classif.ranger", par.vals = list( "num.trees"= 2500), predict.type = 
-  #                                "prob")
-  # model <- mlr::train(classif_lrn_4, classif_task_)
-  # res_ranger <- tuneRanger(classif_task_,
-  #                          measure = list(gmean), 
-  #                          num.threads = 6, num.trees =
-  #                            2500)
-  # explainer <- explain(model, data = data, y = data$score)
-  # plot(variable_importance(explainer, loss_function = loss_root_mean_square))
-  # 
-  results <- list(model = rg, result = result)
-  # results <- list(model = res_ranger$model, result = result, explainer = explainer, data = wynik)
+  explainer <- explain(rg, data = data[,-1], y = data$wynik)
+
+  # results <- list(model = rg, result = result)
+  results <- list(model = rg, result = result, explainer = explainer, data = data_report)
 }

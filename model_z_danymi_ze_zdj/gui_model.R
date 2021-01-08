@@ -267,8 +267,8 @@ server <- function(input, output, session) {
     results <- predict_from_area(xmin, ymin, xmax, ymax, n = 50)
     model <<- results[[1]] # globalne
     result <<- results[[2]] # globalne
-    # explainer <<- results[[3]]
-    # data <<- results[[4]]
+    explainer <<- results[[3]]
+    data_report <<- results[[4]]
     prediction <<- head(result[order(as.vector(result$score), decreasing=TRUE),],5) # global
     
     output$table <- DT::renderDataTable(prediction,
@@ -297,9 +297,9 @@ server <- function(input, output, session) {
                       lat_min = input$min_lat_deg, 
                       lat_max = input$max_lat_deg, 
                       lng_min = input$min_lng_deg, 
-                      lng_max = input$max_lng_deg
-                      #, explainer = explainer,
-                      # data = data
+                      lng_max = input$max_lng_deg,
+                      explainer = explainer,
+                      data = data_report
                       ))
       file.rename(out, file)
       
