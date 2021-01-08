@@ -124,12 +124,28 @@ predict_from_area <- function(xmin, ymin, xmax, ymax, n=100){
   
   nazwy <- wynik[,c(1,4,5)]
   predictions <- predict(rg, newdata=wynik[, 8:ncol(wynik)])
-  # explainer <- explain(rg, predictions, y = ???)
   result <- as.data.frame(cbind(as.numeric(predictions$data$prob.1), nazwy))
   colnames(result)[1]<-c("score")
   result <- result %>% distinct(gmina, .keep_all = TRUE) %>% arrange(desc(score))
   result$score %>% round(2)
   
+  # rozpaczliwa walka z objasnianiem predykcji
+  
+  # klasy <- read.csv2("./klasy.csv")
+  # data <- wynik %>% left_join(klasy, by = c("gmina" = "gmina"))
+  # data <- data[, c(1, 8:ncol(data))]
+  # classif_task_ <- makeClassifTask(data = t3, target = "wynik",
+  #                                  positive = 1)
+  # classif_lrn_4 <- makeLearner("classif.ranger", par.vals = list( "num.trees"= 2500), predict.type = 
+  #                                "prob")
+  # model <- mlr::train(classif_lrn_4, classif_task_)
+  # res_ranger <- tuneRanger(classif_task_,
+  #                          measure = list(gmean), 
+  #                          num.threads = 6, num.trees =
+  #                            2500)
+  # explainer <- explain(model, data = data, y = data$score)
+  # plot(variable_importance(explainer, loss_function = loss_root_mean_square))
+  # 
   results <- list(model = rg, result = result)
   # results <- list(model = res_ranger$model, result = result, explainer = explainer, data = wynik)
 }
