@@ -79,6 +79,9 @@ dane_ze_wspol <- function(wektor_longitude, wektor_latitude){
     element_powiat <- tb[tb$KOD.POCZTOWY == element_kod,"POWIAT"]
     if (!identical(element_gmina, character(0)) & !identical(element_kod, character(0)) & !identical(element_powiat, character(0))){
       gminy[results_element_add] <- paste0("", substr(element_gmina, 7, nchar(element_gmina)))
+      if (substr(gminy[results_element_add], 1, 14) == "Miejska Miasto"){
+        gminy[results_element_add] <- substr(gminy[results_element_add], 16, nchar(gminy[results_element_add]))
+      }
       gminy[results_element_add] <- stri_trans_general(str = gminy[results_element_add], id = "Latin-ASCII")
       longitude[results_element_add] <- random_longitude[i]
       latitude[results_element_add] <- random_latitude[i]
