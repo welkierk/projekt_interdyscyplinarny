@@ -129,7 +129,7 @@ predict_from_area <- function(xmin, ymin, xmax, ymax, n=100){
   
   klasy <- read.csv2("./klasy.csv")
   data <- wynik %>% left_join(klasy, by = c("gmina" = "gmina"))
-  data_report <- data[,c(1,38,36,37,8:35)]
+  data_report <- data[,c(1,4,5,38,36,37,8:35)]
   colnames(data_report)[1] <- "wynik"
   data <- data[,c(38,36,37,8:35)]
   colnames(data)[1] <- "wynik"

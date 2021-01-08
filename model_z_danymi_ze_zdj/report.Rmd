@@ -62,12 +62,14 @@ df %>%
 
 ## Explain
 
-```{r breakdown, eval=FALSE}
-explainer <- params$explainer
+```{r breakdown}
 
+data <- params$data
 # break down plot for the best
-c(lng, lat) <- table[1,3:4]
-break_down <- predict_parts(explainer, new_observation = params$data[1,]) # wyciągnąć z data tą obserwację co naj 
+lng <- result[1,3]
+lat <- result[1,4]
+index <- which(data_report$szerokosc==lat & data_report$dlugosc==lng)
+break_down <- predict_parts(explainer, new_observation = data[index,-c(1:3)]) # wyciągnąć z data tą obserwację co naj 
 plot(break_down)
 ```
 
