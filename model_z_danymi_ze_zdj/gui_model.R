@@ -71,6 +71,8 @@ ui <- fluidPage(
 )
 server <- function(input, output, session) {
   
+  disable("downloadReport")
+  
   observeEvent(input$dataChoice, {
     if(input$dataChoice == "Coordinates"){
       enable('min_lng_deg')
@@ -275,6 +277,7 @@ server <- function(input, output, session) {
                                         colnames = c('Score', 'Gmina', 'Longitude', 'Latitude'))
     remove_modal_spinner()
     enable("btn")
+    enable("downloadReport")
     
   }
   onclick("btn", renderTab)
