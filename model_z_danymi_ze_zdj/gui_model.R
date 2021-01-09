@@ -288,24 +288,68 @@ server <- function(input, output, session) {
     filename = "Report.html",
     
     content = function(file) {
-
+      
       library(rmarkdown)
-      out <- render('report.Rmd', html_document(),
+      out <- render('report.Rmd',
                     #switch( input$format,
                     #        HTML = html_document(), PDF = pdf_document()),
-        params = list(table = prediction, 
-                      lat_min = input$min_lat_deg, 
-                      lat_max = input$max_lat_deg, 
-                      lng_min = input$min_lng_deg, 
-                      lng_max = input$max_lng_deg,
-                      explainer = explainer,
-                      data = data_report
-                      ))
+                    params = list(table = prediction, 
+                                  lat_min = input$min_lat_deg, 
+                                  lat_max = input$max_lat_deg, 
+                                  lng_min = input$min_lng_deg, 
+                                  lng_max = input$max_lng_deg,
+                                  explainer = explainer,
+                                  data = data_report
+                    ))
       file.rename(out, file)
       
       # rmarkdown::render("report.Rmd", output_file = file)
     }
   )
+  
+  # proba stworzenia animacji podczas generowania raportu
+  
+  # generateReport <- function() {
+  #   disable("downloadReport")
+  #   show_modal_spinner(
+  #     spin = "cube-grid",
+  #     text = "Please wait. Generating report...",
+  #     color = "#6B8EB7"
+  #   )
+  #   
+  #   output$downloadReport <- downloadHandler(
+  #     # filename = function() {
+  #     #   paste('Report', sep = '.', switch(
+  #     #     input$format, HTML = 'html', PDF = 'pdf'
+  #     #   ))
+  #     # },
+  #     filename = "Report.html",
+  #     
+  #     content = function(file) {
+  #       
+  #       library(rmarkdown)
+  #       out <- render('report.Rmd',
+  #                     #switch( input$format,
+  #                     #        HTML = html_document(), PDF = pdf_document()),
+  #                     params = list(table = prediction, 
+  #                                   lat_min = input$min_lat_deg, 
+  #                                   lat_max = input$max_lat_deg, 
+  #                                   lng_min = input$min_lng_deg, 
+  #                                   lng_max = input$max_lng_deg,
+  #                                   explainer = explainer,
+  #                                   data = data_report
+  #                     ))
+  #       file.rename(out, file)
+  #       
+  #       # rmarkdown::render("report.Rmd", output_file = file)
+  #     }
+  #   )
+  #   
+  #   remove_modal_spinner()
+  #   enable("downloadReport")
+  # }
+  # onclick("downloadReport", generateReport)
+  
 }   
 
 shinyApp(ui = ui, server = server)
