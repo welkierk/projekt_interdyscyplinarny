@@ -293,6 +293,11 @@ server <- function(input, output, session) {
     content = function(file) {
       
       library(rmarkdown)
+      show_modal_spinner(
+           spin = "cube-grid",
+           text = "Please wait. Generating report...",
+           color = "#6B8EB7"
+         )
       out <- render('report.Rmd',
                     #switch( input$format,
                     #        HTML = html_document(), PDF = pdf_document()),
@@ -304,6 +309,7 @@ server <- function(input, output, session) {
                                   explainer = explainer,
                                   data = data_report
                     ))
+      remove_modal_spinner()
       file.rename(out, file)
       
       # rmarkdown::render("report.Rmd", output_file = file)
