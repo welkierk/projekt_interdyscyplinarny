@@ -51,7 +51,7 @@ kable(table, align = "c") %>%
 ```{r}
 temp <- t(cbind(table[,3],table[,4]))
 coord <- data.frame(lat=temp[2,], lng=temp[1,])
-label <- table$Gmina
+label <- table$Gmina[-1]
 df <- data.frame(lat = as.numeric(coord$lat),
                  lng = as.numeric(coord$lng))
 zoom <- abs(ceiling(log2(max(params$lng_max - params$lng_min, params$lat_max - params$lat_min) / 256))) +1
