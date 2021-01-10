@@ -272,7 +272,7 @@ server <- function(input, output, session) {
     explainer <<- results[[3]]
     data_report <<- results[[4]]
     prediction <<- head(result[order(as.vector(result$score), decreasing=TRUE),],5) # global
-    prediction$score <- round(prediction$score, 3)
+    prediction$score <<- round(prediction$score, 3)
     output$table <- DT::renderDataTable(prediction,
                                         colnames = c('Score', 'Gmina', 'Longitude', 'Latitude'))
     remove_modal_spinner()
