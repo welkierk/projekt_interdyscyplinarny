@@ -52,7 +52,7 @@ dane_ze_wspol <- function(wektor_longitude, wektor_latitude){
   #mój kod API - mam bezpłatny limit na dość sporą liczbę zapytań, ale jest to ograniczona
   #liczba, więc korzystajcie, ale nie róbcie bez potrzeby pętli z tysiącami adresów
   register_google(key = "AIzaSyDzpUawTQC4I_Sru1G0EkgcgbsJ9uKAt2I", write = TRUE)
-  tb <- read.csv("kody.csv", header = TRUE, row.names=NULL, sep = ";", fileEncoding = "latin1")
+  tb <- read.csv("kody.csv", header = TRUE, row.names=NULL, sep = ";", fileEncoding = "Windows-1250")
   tb <- unique(tb[,c("KOD.POCZTOWY","POWIAT")])
   random_longitude <- wektor_longitude
   random_latitude <- wektor_latitude
@@ -111,7 +111,7 @@ predict_from_area <- function(xmin, ymin, xmax, ymax, n=100){
   x <- dane_ze_wspol(lon, lat)
   colnames(x) <- c("gmina", "powiat", "kod_poczt", "dlugosc", "szerokosc")
   
-  dt <- read.csv("dochody_i_ludnosc_2.csv", encoding = "latin1")
+  dt <- read.csv("dochody_i_ludnosc_2.csv", encoding = "Windows-1250")
   dt <- dt[, -c(32:33)]
   dt$Nazwa <- substr(dt$Nazwa,1,nchar(dt$Nazwa)-4)
   dt$Nazwa <- stri_trans_general(str = dt$Nazwa, id = "Latin-ASCII")
