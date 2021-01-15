@@ -1,1 +1,1887 @@
-"x"
+"gmina";"score"
+"Rzeszów";1
+"Kraków";1
+"Wroc³aw";1
+"Poznañ";1
+"Opole";1
+"Zielona Góra";1
+"Gdañsk";1
+"Bia³ystok";1
+"Lublin";1
+"Skierniewice";1
+"Szczecin";1
+"Toruñ";1
+"Siedlce";1
+"Gorzów Wielkopolski";1
+"Olsztyn";1
+"Bielsko-Bia³a";1
+"Katowice";1
+"£om¿a";1
+"Gliwice";1
+"Sopot";1
+"Nowy S¹cz";1
+"Tychy";1
+"Koszalin";1
+"Suwa³ki";1
+"Krosno";1
+"Mys³owice";1
+"Leszno";1
+"Jaworzno";1
+"Rybnik";1
+"Ruda Œl¹ska";1
+"Œwinoujœcie";1
+"Legnica";1
+"Kielce";1
+"Radom";0
+"Jelenia Góra";0
+"S³upsk";0
+"Kalisz";0
+"D¹browa Górnicza";0
+"Bia³a Podlaska";0
+"¯ory";0
+"Piotrków Trybunalski";0
+"P³ock";0
+"Siemianowice Œl¹skie";0
+"Gdynia";0
+"Bydgoszcz";0
+"Ostro³êka";0
+"Czêstochowa";0
+"Grudzi¹dz";0
+"Elbl¹g";0
+"Chorzów";0
+"Che³m";0
+"Sosnowiec";0
+"Piekary Œl¹skie";0
+"Tarnów";0
+"Konin";0
+"W³oc³awek";0
+"Jastrzêbie-Zdrój";0
+"Przemyœl";0
+"Zabrze";0
+"Tarnobrzeg";0
+"Bytom";0
+"Pruszcz Gdañski";1
+"Ustroñ";1
+"Luboñ";1
+"Marki";1
+"Konstantynów £ódzki";1
+"Orzesze";1
+"Tarnowskie Góry";1
+"Rumia";1
+"O³awa";1
+"Œwidwin";1
+"Józefów";1
+"Miko³ów";1
+"Koœcian";1
+"Bieruñ";1
+"Pruszków";1
+"Ostrów Wielkopolski";1
+"Koby³ka";1
+"Z¹bki";1
+"Sulejówek";1
+"Garwolin";1
+"Imielin";1
+"Otwock";1
+"E³k";1
+"Pyskowice";1
+"Mielec";1
+"W¹growiec";1
+"Reda";1
+"£eba";1
+"Z³otów";1
+"Lubawa";1
+"Krynica Morska";1
+"¯agañ";1
+"Milanówek";1
+"Œwidnik";1
+"£aziska Górne";1
+"Zielonka";1
+"M³awa";1
+"Lubliniec";1
+"Tczew";1
+"Jordanów";1
+"Rydu³towy";1
+"Kutno";1
+"I³awa";1
+"¯yrardów";1
+"Ko³obrzeg";1
+"Gniezno";1
+"Ciechanów";1
+"Ostróda";1
+"Cz³uchów";1
+"Lêdziny";1
+"Sochaczew";1
+"Obrzycko";1
+"Ustka";1
+"Sucha Beskidzka";1
+"Nowy Dwór Mazowiecki";1
+"Szczecinek";1
+"Szklarska Porêba";1
+"Karpacz";1
+"Radziejów";1
+"Wis³a";1
+"Gorlice";1
+"¯ywiec";1
+"Bêdzin";1
+"Koœcierzyna";1
+"Knurów";1
+"Szczawno-Zdrój";1
+"Brzeziny";1
+"Zakopane";1
+"Dzia³dowo";1
+"Dar³owo";1
+"Polanica-Zdrój";1
+"Szczyrk";1
+"Miñsk Mazowiecki";1
+"Wysokie Mazowieckie";1
+"W³odawa";1
+"Skórcz";1
+"S³upca";1
+"Rypin";1
+"Wa³cz";1
+"Podkowa Leœna";1
+"Przasnysz";1
+"Kêtrzyn";1
+"Chojnów";1
+"Wodzis³aw Œl¹ski";1
+"Lêbork";1
+"Bukowno";1
+"Lubin";1
+"Gi¿ycko";1
+"Brodnica";1
+"Gostynin";1
+"S³awno";1
+"Ciechocinek";1
+"Soko³ów Podlaski";1
+"P³oñsk";1
+"Sierpc";1
+"Boles³awiec";1
+"Hajnówka";1
+"G³ogów";1
+"Wojkowice";1
+"Stalowa Wola";1
+"Sulmierzyce";1
+"Oleœnica";1
+"Miasteczko Œl¹skie";1
+"Cieszyn";1
+"Stoczek £ukowski";1
+"Wêgrów";0
+"Stargard";0
+"Górowo I³aweckie";0
+"Kowary";0
+"Z³otoryja";0
+"Zawiercie";0
+"S³awków";0
+"Le¿ajsk";0
+"Limanowa";0
+"Myszków";0
+"Skar¿ysko-Kamienna";0
+"Maków Mazowiecki";0
+"Legionowo";0
+"Piechowice";0
+"Czarnków";0
+"Tomaszów Lubelski";0
+"Pi³a";0
+"Kolno";0
+"Turek";0
+"Starogard Gdañski";0
+"Mr¹gowo";0
+"Be³chatów";0
+"£uków";0
+"Lubartów";0
+"Raci¹¿";0
+"Nowa Ruda";0
+"Duszniki-Zdrój";0
+"Radymno";0
+"Jawor";0
+"Siemiatycze";0
+"Dynów";0
+"Ostrów Mazowiecka";0
+"Dêbica";0
+"Sejny";0
+"Chojnice";0
+"Grybów";0
+"Wejherowo";0
+"Lubañ";0
+"Grajewo";0
+"Bartoszyce";0
+"Bi³goraj";0
+"Krasnystaw";0
+"Kwidzyn";0
+"Gubin";0
+"Bielsk Podlaski";0
+"Radzyñ Podlaski";0
+"Sieradz";0
+"Dêblin";0
+"Miêdzyrzec Podlaski";0
+"Œwieradów-Zdrój";0
+"¯ary";0
+"Ozorków";0
+"Racibórz";0
+"£owicz";0
+"Kudowa-Zdrój";0
+"Ko³o";0
+"Ostrowiec Œwiêtokrzyski";0
+"Puszczykowo";0
+"Kraœnik";0
+"Œwiebodzice";0
+"Starachowice";0
+"Hrubieszów";0
+"Jedlina-Zdrój";0
+"K³odzko";0
+"£êknica";0
+"Zgierz";0
+"Golub-Dobrzyñ";0
+"Kalety";0
+"Sanok";0
+"Che³mno";0
+"W¹brzeŸno";0
+"Kostrzyn nad Odr¹";0
+"Tomaszów Mazowiecki";0
+"Lubaczów";0
+"Brzeg";0
+"Pabianice";0
+"Bielawa";0
+"Brañsk";0
+"Braniewo";0
+"Zawidów";0
+"Œwidnica";0
+"Nowa Sól";0
+"Zgorzelec";0
+"Mszana Dolna";0
+"Chodzie¿";0
+"Zduñska Wola";0
+"Radlin";0
+"Pu³awy";0
+"Jas³o";0
+"Lipno";0
+"Nowy Targ";0
+"Szczytno";0
+"Bia³ogard";0
+"£askarzew";0
+"Nowe Miasto Lubawskie";0
+"Bochnia";0
+"Aleksandrów Kujawski";0
+"Augustów";0
+"Radomsko";0
+"Jaros³aw";0
+"Terespol";0
+"Lidzbark Warmiñski";0
+"Pionki";0
+"Kamienna Góra";0
+"Radzionków";0
+"Kêdzierzyn-KoŸle";0
+"Pi³awa Górna";0
+"Rejowiec Fabryczny";0
+"Pszów";0
+"Gozdnica";0
+"Boguszów-Gorce";0
+"G³owno";0
+"Porêba";0
+"Swarzêdz";1
+"Nowy Tomyœl";1
+"Tyczyn";1
+"Grodzisk Wielkopolski";1
+"Gostyñ";1
+"Piaseczno";1
+"Kórnik";1
+"Supraœl";1
+"Brwinów";1
+"Opalenica";1
+"Wilamowice";1
+"Czerwionka-Leszczyny";1
+"Szamotu³y";1
+"Œrem";1
+"Grodzisk Mazowiecki";1
+"Mosina";1
+"Kostrzyn";1
+"Rydzyna";1
+"Karczew";1
+"O¿arów Mazowiecki";1
+"Wieliczka";1
+"Skaryszew";1
+"Nowe Skalmierzyce";1
+"Rawicz";1
+"Oborniki";1
+"Tarczyn";1
+"Strumieñ";1
+"Radzymin";1
+"Niepo³omice";1
+"Dziwnów";1
+"Boguchwa³a";1
+"K¹ty Wroc³awskie";1
+"Brusy";1
+"Skoki";1
+"Aleksandrów £ódzki";1
+"Strzelin";1
+"Œroda Wielkopolska";1
+"Wasilków";1
+"Serock";1
+"Trzebnica";1
+"Miêdzyzdroje";1
+"Kartuzy";1
+"Rzgów";1
+"Zab³udów";1
+"£osice";1
+"Zduny";1
+"Mszczonów";1
+"Goleniów";1
+"¯ukowo";1
+"Barczewo";1
+"Pobiedziska";1
+"Soœnicowice";1
+"Wo³omin";1
+"£abiszyn";1
+"Góra Kalwaria";1
+"Œwi¹tniki Górne";1
+"Kozieg³owy";1
+"T³uszcz";1
+"Jarocin";1
+"Jelcz-Laskowice";1
+"Gogolin";1
+"Tuszyn";1
+"Choroszcz";1
+"Polkowice";1
+"Stryków";1
+"Pilawa";1
+"Ujazd";1
+"Sieraków";1
+"Namys³ów";1
+"Koluszki";1
+"Brzeg Dolny";1
+"Ropczyce";1
+"Murowana Goœlina";1
+"Myœlenice";1
+"Halinów";1
+"Stêszew";1
+"Nowe Brzesko";1
+"Lipsko";1
+"Zb¹szyñ";1
+"Buk";1
+"Stawiszyn";1
+"Grójec";1
+"£omianki";1
+"Warka";1
+"Wronki";1
+"Czerniejewo";1
+"Zb¹szynek";1
+"Wolbórz";1
+"Szubin";1
+"Siechnice";1
+"Czechowice-Dziedzice";1
+"Nasielsk";1
+"Olkusz";1
+"Pszczyna";1
+"Wyszków";1
+"Wrzeœnia";1
+"Recz";1
+"Przec³aw";1
+"Siewierz";1
+"S³omniki";1
+"Czersk";1
+"Sulejów";1
+"£êczna";1
+"Sianów";1
+"Chêciny";1
+"Twardogóra";1
+"Nysa";1
+"Golina";1
+"Czerwieñsk";1
+"Konstancin-Jeziorna";1
+"Nekla";1
+"Cedynia";1
+"Skarszewy";1
+"Odolanów";1
+"Szczytna";1
+"Osieczna";1
+"Nowy Wiœnicz";1
+"Be³¿yce";1
+"KoŸmin Wielkopolski";1
+"Trzebinia";1
+"Wolsztyn";1
+"Mikstat";1
+"Kisielice";1
+"Nowogrodziec";1
+"Œroda Œl¹ska";1
+"Kamieñ Pomorski";1
+"Stronie Œl¹skie";1
+"Torzym";1
+"Pu³tusk";1
+"Sulechów";1
+"Wielichowo";1
+"Krzywiñ";1
+"Œwiecie";1
+"Raszków";1
+"Ryn";1
+"Bierutów";1
+"Rudnik nad Sanem";1
+"Jutrosin";1
+"Kargowa";1
+"Daleszyce";1
+"Su³kowice";1
+"Mirsk";1
+"Oborniki Œl¹skie";1
+"Sztum";1
+"Ska³a";1
+"Oleszyce";1
+"Olszyna";1
+"Szadek";1
+"Krzeszowice";1
+"Oœno Lubuskie";1
+"Mieroszów";1
+"Mogielnica";1
+"Miechów";1
+"Ka³uszyn";1
+"Nowogród Bobrzañski";1
+"Ostroróg";1
+"Dobczyce";1
+"Rymanów";1
+"Mi³om³yn";1
+"Rychwa³";1
+"Pe³czyce";1
+"Frombork";1
+"Pogorzela";1
+"Bytów";1
+"Wyszogród";1
+"Ruciane-Nida";1
+"Bolków";1
+"Pakoœæ";1
+"Œcinawa";1
+"Zagórów";1
+"Skoczów";1
+"Górzno";1
+"KuŸnia Raciborska";1
+"Stepnica";1
+"Pajêczno";1
+"Dobrodzieñ";1
+"S³awa";1
+"Janikowo";1
+"Pasym";0
+"Grabów nad Prosn¹";0
+"Jastrowie";0
+"Solec Kujawski";0
+"Bia³obrzegi";0
+"Sobótka";0
+"Borne Sulinowo";0
+"Brzeœæ Kujawski";0
+"Ksi¹¿ Wielkopolski";0
+"Miêdzylesie";0
+"Witnica";0
+"Kozienice";0
+"Wyrzysk";0
+"Na³êczów";0
+"Milicz";0
+"Syców";0
+"Poniec";0
+"Sêdziszów";0
+"Kêpice";0
+"Tuchola";0
+"Po³aniec";0
+"Chmielnik";0
+"Piaski";0
+"Glinojeck";0
+"Szczucin";0
+"¯arki";0
+"Olsztynek";0
+"Gryfino";0
+"Czempiñ";0
+"Knyszyn";0
+"W³adys³awowo";0
+"Nowy Staw";0
+"Pilzno";0
+"Brok";0
+"Bisztynek";0
+"Golczewo";0
+"Chociwel";0
+"Prochowice";0
+"Brzeszcze";0
+"Nowogard";0
+"Trzciel";0
+"Zdzieszowice";0
+"Ma³ogoszcz";0
+"Bia³a";0
+"Mogilno";0
+"Witkowo";0
+"Miko³ajki";0
+"Orzysz";0
+"Suchedniów";0
+"Piotrków Kujawski";0
+"Skalbmierz";0
+"Krynki";0
+"Wieruszów";0
+"RogoŸno";0
+"Kañczuga";0
+"Sokó³ka";0
+"Krajenka";0
+"Kêty";0
+"Alwernia";0
+"L¹dek-Zdrój";0
+"¯arów";0
+"Dobre Miasto";0
+"Gryfice";0
+"Kalwaria Zebrzydowska";0
+"Kazimierza Wielka";0
+"Mi³os³aw";0
+"Zagórz";0
+"Libi¹¿";0
+"Z³ocieniec";0
+"Bardo";0
+"Kêpno";0
+"Trzemeszno";0
+"Trzcianka";0
+"Bia³y Bór";0
+"Chocianów";0
+"Tychowo";0
+"Mordy";0
+"¯ychlin";0
+"Janowiec Wielkopolski";0
+"Nowe Miasto nad Pilic¹";0
+"Krobia";0
+"Warta";0
+"Prusice";0
+"Bodzentyn";0
+"Skawina";0
+"Pieniê¿no";0
+"G³ogów Ma³opolski";0
+"Ogrodzieniec";0
+"Ciê¿kowice";0
+"Krosno Odrzañskie";0
+"Parczew";0
+"Jaworzyna Œl¹ska";0
+"O¿arów";0
+"Olecko";0
+"Pleszew";0
+"Maszewo";0
+"Dzia³oszyn";0
+"Miêdzychód";0
+"Ujœcie";0
+"Miastko";0
+"Narol";0
+"Ostrzeszów";0
+"Jasieñ";0
+"Baranów Sandomierski";0
+"Pyrzyce";0
+"Reszel";0
+"Czarne";0
+"D¹bie";0
+"Myœlibórz";0
+"Police";0
+"£ask";0
+"Radzyñ Che³miñski";0
+"Œlesin";0
+"£azy";0
+"Kamieñ Krajeñski";0
+"Rakoniewice";0
+"Krynica-Zdrój";0
+"Kazimierz Dolny";0
+"Poniatowa";0
+"Skwierzyna";0
+"Rabka-Zdrój";0
+"Nowy Dwór Gdañski";0
+"Zalewo";0
+"¯erków";0
+"Brzesko";0
+"Sulêcin";0
+"Wolin";0
+"Kalisz Pomorski";0
+"Pniewy";0
+"Koronowo";0
+"Pas³êk";0
+"£apy";0
+"Janów Lubelski";0
+"Wieluñ";0
+"Wojnicz";0
+"Brzozów";0
+"Margonin";0
+"Kleczew";0
+"Bobowa";0
+"Lubsko";0
+"Opatów";0
+"Paczków";0
+"Andrychów";0
+"Czaplinek";0
+"Kluczbork";0
+"Wo³ów";0
+"Ró¿an";0
+"Prabuty";0
+"Bychawa";0
+"D¹browa Tarnowska";0
+"Nowa Dêba";0
+"Kowalewo Pomorskie";0
+"£obez";0
+"Iwonicz-Zdrój";0
+"Wêgorzewo";0
+"Dobra";0
+"Drzewica";0
+"Moñki";0
+"Wysoka";0
+"Strzy¿ów";0
+"Z¹bkowice Œl¹skie";0
+"Rzepin";0
+"Karlino";0
+"Dêbno";0
+"Jab³onowo Pomorskie";0
+"Gryfów Œl¹ski";0
+"¯nin";0
+"Mor¹g";0
+"Drawsko Pomorskie";0
+"Nak³o nad Noteci¹";0
+"Œmigiel";0
+"Chojna";0
+"Zakroczym";0
+"Mrocza";0
+"Z³oczew";0
+"Sêpólno Krajeñskie";0
+"Tyszowce";0
+"Ryki";0
+"Lubawka";0
+"Kamieñsk";0
+"Pilica";0
+"Krzepice";0
+"Barcin";0
+"Wschowa";0
+"Polanów";0
+"Przemków";0
+"Biskupiec";0
+"Wleñ";0
+"P³oty";0
+"Opoczno";0
+"Krotoszyn";0
+"Pisz";0
+"G³uszyca";0
+"Krzy¿ Wielkopolski";0
+"Ozimek";0
+"Korsze";0
+"Czchów";0
+"Choszczno";0
+"Lidzbark";0
+"Piwniczna-Zdrój";0
+"Lesko";0
+"Leœna";0
+"Lubomierz";0
+"Orneta";0
+"Lwówek Œl¹ski";0
+"Chodecz";0
+"Sompolno";0
+"Chrzanów";0
+"Staszów";0
+"Susz";0
+"Przedecz";0
+"B³aszki";0
+"Skêpe";0
+"Zator";0
+"Bia³a Rawska";0
+"Resko";0
+"Goœcino";0
+"Dobiegniew";0
+"Drawno";0
+"Leœnica";0
+"W³oszczowa";0
+"Drezdenko";0
+"Ma³omice";0
+"Chorzele";0
+"K³ecko";0
+"Szlichtyngowa";0
+"G¹bin";0
+"Bojanowo";0
+"Ustrzyki Dolne";0
+"Zwoleñ";0
+"Trzebiatów";0
+"Izbica Kujawska";0
+"Maków Podhalañski";0
+"I³¿a";0
+"Szamocin";0
+"Prószków";0
+"Kunów";0
+"Lubieñ Kujawski";0
+"Wolbrom";0
+"Miêdzybórz";0
+"Kruszwica";0
+"Nisko";0
+"Wêgliniec";0
+"Stopnica";0
+"Bie¿uñ";0
+"Pyzdry";0
+"Cz³opa";0
+"Miros³awiec";0
+"¯migród";0
+"Bystrzyca K³odzka";0
+"Zaklików";0
+"Byczyna";0
+"G³ogówek";0
+"Pieñsk";0
+"Grodków";0
+"K³odawa";0
+"Strzelce Opolskie";0
+"Wiêcbork";0
+"Jedlicze";0
+"Che³mek";0
+"Sêdziszów Ma³opolski";0
+"Szyd³owiec";0
+"M³ynary";0
+"Olesno";0
+"Radomyœl Wielki";0
+"Dolsk";0
+"Æmielów";0
+"Czarna Bia³ostocka";0
+"Dobrzyca";0
+"Go³dap";0
+"Sêpopol";0
+"Poddêbice";0
+"Zwierzyniec";0
+"Proszowice";0
+"Jeziorany";0
+"Po³czyn-Zdrój";0
+"Moryñ";0
+"Szczekociny";0
+"Wadowice";0
+"Dobrzyñ nad Wis³¹";0
+"Barlinek";0
+"Uniejów";0
+"Okonek";0
+"¯elechów";0
+"Drobin";0
+"Wi¹zów";0
+"Kolonowskie";0
+"Ko¿uchów";0
+"£ob¿enica";0
+"Strzelno";0
+"Opole Lubelskie";0
+"Micha³owo";0
+"Krapkowice";0
+"Stary S¹cz";0
+"Œwiebodzin";0
+"Strzegom";0
+"W¹sosz";0
+"Strzelce Krajeñskie";0
+"Pelplin";0
+"Gniew";0
+"£asin";0
+"K³obuck";0
+"Nowa Sarzyna";0
+"Barwice";0
+"G³ucho³azy";0
+"Lubraniec";0
+"Otmuchów";0
+"Miejska Górka";0
+"Szepietowo";0
+"Kolbuszowa";0
+"Niemodlin";0
+"Góra";0
+"Kietrz";0
+"£ochów";0
+"Tuliszków";0
+"Wyœmierzyce";0
+"Go³añcz";0
+"Szczebrzeszyn";0
+"Dzierzgoñ";0
+"Biecz";0
+"£aszczów";0
+"Kcynia";0
+"Soko³ów Ma³opolski";0
+"Drohiczyn";0
+"Kosów Lacki";0
+"Busko-Zdrój";0
+"Wo³czyn";0
+"Bytom Odrzañski";0
+"St¹porków";0
+"Lwówek";0
+"Borek Wielkopolski";0
+"Przysucha";0
+"Muszyna";0
+"¯abno";0
+"B³a¿owa";0
+"Chocz";0
+"Kroœniewice";0
+"Sieniawa";0
+"Nowe";0
+"Koñskie";0
+"Mrozy";0
+"Ulanów";0
+"Wieleñ";0
+"Dzia³oszyce";0
+"Bogatynia";0
+"Prudnik";0
+"Toszek";0
+"Gniewkowo";0
+"Tykocin";0
+"Szprotawa";0
+"¯uromin";0
+"Lipiany";0
+"Pruchnik";0
+"Cieszanów";0
+"Dukla";0
+"Wêgorzyno";0
+"Lubniewice";0
+"Tuchów";0
+"Myszyniec";0
+"Nidzica";0
+"Annopol";0
+"Koniecpol";0
+"Nowe Miasteczko";0
+"Ostrów Lubelski";0
+"Tarnogród";0
+"Koprzywnica";0
+"Ziêbice";0
+"Bia³a Piska";0
+"Kobylin";0
+"Trzciñsko-Zdrój";0
+"WoŸniki";0
+"Korfantów";0
+"Zelów";0
+"Jêdrzejów";0
+"Osiek";0
+"Ryglice";0
+"Zakliczyn";0
+"Ko³aczyce";0
+"Iñsko";0
+"Radków";0
+"Szczawnica";0
+"Niemcza";0
+"Kock";0
+"I³owa";0
+"Czy¿ew";0
+"Brzostek";0
+"Blachownia";0
+"Modliborzyce";0
+"Ciechanowiec";0
+"Bobolice";0
+"Lewin Brzeski";0
+"Zawadzkie";0
+"G³ubczyce";0
+"Jedwabne";0
+"Piñczów";0
+"Mieszkowice";0
+"D¹browa Bia³ostocka";0
+"Goni¹dz";0
+"Wielka Nieszawka";1
+"Szemud";1
+"Œwiêciechowa";1
+"Luzino";1
+"D¹brówka";1
+"Obrowo";1
+"Sierakowice";1
+"Jasienica";1
+"Pilchowice";1
+"Dêbe Wielkie";1
+"KaŸmierz";1
+"Dobrcz";1
+"Biskupice";1
+"Ludwin";1
+"Rzekuñ";1
+"Chmielno";1
+"¯abia Wola";1
+"Trzebownisko";1
+"Wyry";1
+"Kocmyrzów-Luborzyca";1
+"Lutomiersk";1
+"Wi¹zowna";1
+"Andrespol";1
+"Pra¿mów";1
+"¯egocina";1
+"Jaktorów";1
+"D³ugo³êka";1
+"£añcut";1
+"Zielonki";1
+"W³oszakowice";1
+"Œwierklaniec";1
+"Tokarnia";1
+"Gaszowice";1
+"Wielka Wieœ";1
+"G³usk";1
+"Turawa";1
+"Krasne";1
+"Siepraw";1
+"Dopiewo";1
+"Cekcyn";1
+"Juchnowiec Koœcielny";1
+"Mierzêcice";1
+"Nêdza";1
+"Godziesze Wielkie";1
+"Zawonia";1
+"Koniusza";1
+"Ornontowice";1
+"Kroœcienko nad Dunajcem";1
+"Kobierzyce";1
+"Radziejowice";1
+"Kleszczów";1
+"Œwierklany";1
+"Tomice";1
+"Gózd";1
+"Psary";1
+"Komorniki";1
+"Kozy";1
+"Przodkowo";1
+"Miedzichowo";1
+"Stare Babice";1
+"Kosakowo";1
+"Raciechowice";1
+"Bestwina";1
+"Nieporêt";1
+"Zaniemyœl";1
+"Mogilany";1
+"Bia³e B³ota";1
+"Siennica";1
+"Pszczó³ki";1
+"Rogów";1
+"Somonino";1
+"Kleszczewo";1
+"S³upno";1
+"Liszki";1
+"Zapolice";1
+"Lipnica Murowana";1
+"Kolbudy";1
+"Buczkowice";1
+"Wieliszew";1
+"Nadarzyn";1
+"Rokietnica";1
+"Dubicze Cerkiewne";1
+"Dêbowiec";1
+"¯órawina";1
+"Dobra (Szczeciñska)";1
+"Tarnowo Podgórne";1
+"Gzy";1
+"Godzianów";1
+"Czernica";1
+"Z³awieœ Wielka";1
+"Rokiciny";1
+"Blizanów";1
+"Ko³baskowo";1
+"Jaworze";1
+"Strzy¿ewice";1
+"Mszana";1
+"Dobroszyce";1
+"Puchaczów";1
+"Legnickie Pole";1
+"Osieck";1
+"Dalików";1
+"Ko³biel";1
+"£ubowo";1
+"Miêkinia";1
+"Wojciechów";1
+"Przechlewo";1
+"Osielsko";1
+"Kobylnica";1
+"Suchy Las";1
+"Brochów";1
+"Biesiekierz";1
+"Sobienie-Jeziory";1
+"Nowe Miasto";1
+"Czerwonak";1
+"Santok";1
+"Klembów";1
+"Zabierzów";1
+"Wisznia Ma³a";1
+"Stawiguda";1
+"Gilowice";1
+"Puszcza Mariañska";1
+"Krzykosy";1
+"D¹browa Che³miñska";1
+"Œwieszyno";1
+"Lewin K³odzki";1
+"Dobrzyniewo Du¿e";1
+"£odygowice";1
+"Garbatka-Letnisko";1
+"Che³m Œl¹ski";1
+"Rozdra¿ew";1
+"Brójce";1
+"Parzêczew";1
+"Lesznowola";1
+"Gdów";1
+"Bêdzino";1
+"Jonkowo";1
+"Górno";1
+"Warta Boles³awiecka";1
+"Szyd³owo";1
+"Kocza³a";1
+"D³utów";1
+"Stare Miasto";1
+"Bobrowniki";1
+"Lelów";1
+"£ubianka";1
+"Ksawerów";1
+"Gietrzwa³d";1
+"Puck";1
+"Wólka";1
+"Kurzêtnik";1
+"Lipnica";1
+"Raszyn";1
+"Granowo";1
+"Wilga";1
+"Nowa Wieœ Wielka";1
+"£opuszno";1
+"Wieprz";1
+"Czosnów";1
+"Pokój";1
+"Janowice Wielkie";1
+"Kotlin";1
+"Wiœniowa";1
+"Deszczno";1
+"Go³uchów";1
+"Trzebiechów";1
+"Bierawa";1
+"Kobylanka";1
+"Zadzim";1
+"Pomiechówek";1
+"Przywidz";1
+"Filipów";1
+"Mas³ów";1
+"Przygodzice";1
+"Stryszawa";1
+"Budziszewice";1
+"Dywity";1
+"Ostaszewo";1
+"Serniki";1
+"Baka³arzewo";1
+"Kotuñ";1
+"Konopiska";1
+"Bojszowy";1
+"Dziemiany";1
+"Paw³owice";1
+"Mi³kowice";1
+"Brenna";1
+"Korczyna";1
+"Jeziorzany";1
+"Jod³ownik";1
+"Domaniewice";1
+"Piekoszów";1
+"Sulêczyno";1
+"Przemêt";1
+"KoŸminek";1
+"Jordanów Œl¹ski";1
+"Sypniewo";1
+"K³aj";1
+"Spiczyn";1
+"Sicienko";1
+"Rzezawa";1
+"Stanis³awów";1
+"Studzienice";1
+"Celestynów";1
+"Przykona";1
+"Podegrodzie";1
+"Lipusz";1
+"£ysomice";1
+"Kamieniec";1
+"Mstów";1
+"Trzciana";1
+"Dobroñ";1
+"Strawczyn";1
+"Czerwin";1
+"£apsze Ni¿ne";1
+"Suszec";1
+"Œwilcza";1
+"Stara B³otnica";1
+"Lubichowo";1
+"Manowo";1
+"Miedziana Góra";1
+"Krotoszyce";1
+"Brudzeñ Du¿y";1
+"Godów";1
+"Ustronie Morskie";1
+"£¹cko";1
+"Niemce";1
+"Kroœnice";1
+"MiedŸna";1
+"Zblewo";1
+"Szczerców";1
+"Pozezdrze";1
+"Strzeleczki";1
+"Jemielnica";1
+"Tworóg";1
+"Bukowiec";1
+"Krzemieniewo";1
+"Ciep³owody";1
+"Grêbków";1
+"Krzêcin";1
+"Zbros³awice";1
+"Cisna";1
+"Bralin";1
+"Duszniki";1
+"Trojanów";1
+"Istebna";1
+"Konstantynów";1
+"Burzenin";1
+"Che³miec";1
+"Pysznica";1
+"Zagnañsk";1
+"Dragacz";1
+"Krzy¿anów";1
+"NiedŸwiedŸ";1
+"O¿arowice";1
+"Purda";1
+"Mieleszyn";1
+"Krupski M³yn";1
+"Tarnawatka";1
+"Wielgom³yny";1
+"Kamionka Wielka";1
+"Sawin";1
+"Be³¿ec";1
+"Rzewnie";1
+"£ubniany";1
+"Bolimów";1
+"Tczów";1
+"Rutka-Tartak";1
+"Osjaków";1
+"Czerniewice";1
+"Mi³oradz";1
+"Chrz¹stowice";1
+"Papowo Biskupie";1
+"Cieszków";1
+"Chrzypsko Wielkie";1
+"Secemin";1
+"Lanckorona";1
+"Lelis";1
+"Pakos³aw";1
+"£ukowica";1
+"Stara Kiszewa";1
+"Podgórzyn";1
+"Mokobody";1
+"Inowroc³aw";1
+"Dziadowa K³oda";1
+"Promna";1
+"Kamienica Polska";1
+"Szczytniki";1
+"Wielbark";1
+"¯elazków";1
+"Koszêcin";1
+"Wartkowice";1
+"Chybie";1
+"£¹ck";1
+"Pruszcz";1
+"Mietków";1
+"Urszulin";1
+"Chynów";1
+"Lisków";1
+"Poronin";1
+"Sobków";1
+"Nowa Karczma";1
+"Wolanów";1
+"Malbork";1
+"Sidra";1
+"Dobrzeñ Wielki";1
+"Sorkwity";1
+"Ulan-Majorat";1
+"Somianka";1
+"Gozdowo";1
+"Kijewo Królewskie";1
+"Raba Wy¿na";1
+"Pierzchnica";1
+"Iwanowice";1
+"Nowa Sucha";1
+"Trzydnik Du¿y";1
+"Czarna D¹brówka";1
+"G¹sawa";1
+"Jedliñsk";1
+"Nawojowa";1
+"W³odowice";1
+"Sadlinki";1
+"Zêbowice";1
+"Liniewo";1
+"Bukowsko";1
+"Unis³aw";1
+"Me³giew";1
+"Bukowina Tatrzañska";1
+"Kochanowice";1
+"Goleszów";1
+"Kowiesy";1
+"Rewal";1
+"Lubasz";1
+"Lubomia";1
+"Nielisz";1
+"Por¹bka";1
+"Œlemieñ";1
+"Paw³ów";1
+"Wodynie";1
+"Skórzec";1
+"Pêczniew";1
+"Kiernozia";1
+"Jejkowice";1
+"Koœcielec";1
+"Sêdziejowice";1
+"Czajków";1
+"S³oñsk";1
+"Trzebiel";1
+"Jastrzêbia";1
+"Milejewo";1
+"Lubomino";1
+"Krzywcza";1
+"Krokowa";1
+"Dzier¿oniów";1
+"Œwiedziebnia";0
+"Oœwiêcim";0
+"Liw";0
+"Nowogródek Pomorski";0
+"Kulesze Koœcielne";0
+"£êkawica";0
+"Sk¹pe";0
+"Lisia Góra";0
+"Powidz";0
+"Gocza³kowice-Zdrój";0
+"Siemi¹tkowo";0
+"Radomyœl nad Sanem";0
+"Grodziec";0
+"Szczutowo";0
+"Trzcinica";0
+"Narewka";0
+"Kwilcz";0
+"Niedrzwica Du¿a";0
+"Budzyñ";0
+"Nowe Miasto nad Wart¹";0
+"Dru¿bice";0
+"Jaœliska";0
+"Ceg³ów";0
+"Radziemice";0
+"Osiek Ma³y";0
+"Kampinos";0
+"Dubeninki";0
+"Orla";0
+"Ko³czyg³owy";0
+"Lyski";0
+"Gniewino";0
+"Stegna";0
+"Wisznice";0
+"Wêgierska Górka";0
+"Buczek";0
+"Czudec";0
+"Zarzecze";0
+"Lubiszyn";0
+"Nowa Wieœ Lêborska";0
+"Gielniów";0
+"Popielów";0
+"Brudzew";0
+"Miastków Koœcielny";0
+"Osie";0
+"K³oczew";0
+"Kruklanki";0
+"Go³cza";0
+"Niegowa";0
+"£oniów";0
+"Komprachcice";0
+"U³ê¿";0
+"Wróblew";0
+"Goworowo";0
+"Grêbocice";0
+"Czernice Borowe";0
+"Tuchomie";0
+"Malczyce";0
+"Olszewo-Borki";0
+"£apanów";0
+"Stryszów";0
+"Ba³tów";0
+"Czarny Bór";0
+"Wiœlica";0
+"Kêsowo";0
+"Ropa";0
+"Susiec";0
+"Radzanowo";0
+"Warnice";0
+"Raci¹¿ek";0
+"S³ubice";0
+"Zamoœæ";0
+"Witonia";0
+"Krasiczyn";0
+"Jeleniewo";0
+"DŸwierzuty";0
+"Maciejowice";0
+"Pokrzywnica";0
+"Banie";0
+"Kie³czyg³ów";0
+"Krasnopol";0
+"Fabianki";0
+"Wierzchlas";0
+"Narew";0
+"Przytoczna";0
+"Kornowac";0
+"Boleszkowice";0
+"Zaleszany";0
+"Fajs³awice";0
+"Orchowo";0
+"Chrostkowo";0
+"D¹browa Biskupia";0
+"Srokowo";0
+"Je¿ów Sudecki";0
+"Odrzywó³";0
+"Stanin";0
+"Je¿ewo";0
+"Bystra-Sidzina";0
+"Ciel¹dz";0
+"Gostycyn";0
+"Su³oszowa";0
+"Mniszków";0
+"Siedlec";0
+"Harasiuki";0
+"Wi¹zownica";0
+"Tu³owice";0
+"Lubicz";0
+"G³ówczyce";0
+"Grunwald";0
+"Kramsk";0
+"Siemkowice";0
+"Kazimierz Biskupi";0
+"Belsk Du¿y";0
+"Parysów";0
+"Ma³a Wieœ";0
+"Borowie";0
+"Krzymów";0
+"Parchowo";0
+"Czerwiñsk nad Wis³¹";0
+"Kaliska";0
+"Kury³ówka";0
+"W¹dro¿e Wielkie";0
+"Z³otniki Kujawskie";0
+"Solina";0
+"Borów";0
+"Krzy¿anowice";0
+"Cewice";0
+"Czernikowo";0
+"Czarnocin";0
+"Smo³dzino";0
+"RoŸwienica";0
+"Lipowa";0
+"Iwierzyce";0
+"Garbów";0
+"Wicko";0
+"Dêbowa £¹ka";0
+"Kazanów";0
+"Gniewoszów";0
+"Otyñ";0
+"Ksi¹¿ki";0
+"Maków";0
+"Sadowne";0
+"Giza³ki";0
+"Lipnik";0
+"Stare Kurowo";0
+"Markuszów";0
+"Widuchowa";0
+"L¹dek";0
+"Rad³ów";0
+"£ukta";0
+"Tr¹bki Wielkie";0
+"Dominowo";0
+"Kamionka";0
+"Postomino";0
+"Koœcielisko";0
+"Perzów";0
+"Ma³kinia Górna";0
+"Komañcza";0
+"P³u¿nica";0
+"Czarno¿y³y";0
+"Marklowice";0
+"Solec-Zdrój";0
+"Sieroszewice";0
+"Lubieñ";0
+"Œwierzno";0
+"Miedzna";0
+"Kurów";0
+"£ambinowice";0
+"Wi¿ajny";0
+"Markowa";0
+"Sochocin";0
+"Ciechocin";0
+"S³aboszów";0
+"Kolsko";0
+"I³ów";0
+"Grabów";0
+"Wiskitki";0
+"Ryczywó³";0
+"£êczyca";0
+"Niwiska";0
+"Szczaniec";0
+"£adzice";0
+"Sadki";0
+"Giby";0
+"Zabrodzie";0
+"Ko³aczkowo";0
+"M³odzieszyn";0
+"Smêtowo Graniczne";0
+"S³awoborze";0
+"Zawoja";0
+"Damas³awek";0
+"Ciepielów";0
+"Milejów";0
+"StaroŸreby";0
+"Wiœniewo";0
+"Stare Pole";0
+"Piszczac";0
+"Tereszpol";0
+"Wieczfnia Koœcielna";0
+"Uœcie Gorlickie";0
+"Drzycim";0
+"Jastków";0
+"Wierzchos³awice";0
+"¯yraków";0
+"Rêdziny";0
+"Mys³akowice";0
+"Solec nad Wis³¹";0
+"Stary Zamoœæ";0
+"Jadów";0
+"Kowala";0
+"Dzierz¹¿nia";0
+"Poraj";0
+"Strzelce";0
+"£êczyce";0
+"Gromadka";0
+"Frysztak";0
+"Wilczyn";0
+"Gromnik";0
+"Skulsk";0
+"Kobyla Góra";0
+"Lipka";0
+"Sitkówka-Nowiny";0
+"Mêcinka";0
+"Mœciwojów";0
+"Choceñ";0
+"£agiewniki";0
+"Bia³y Dunajec";0
+"Czorsztyn";0
+"Klucze";0
+"G³uchów";0
+"Or³y";0
+"Mircze";0
+"Bytoñ";0
+"Siennica Ró¿ana";0
+"Kraœniczyn";0
+"Besko";0
+"Mykanów";0
+"Zbuczyn";0
+"Zakrzew";0
+"Soñsk";0
+"Starcza";0
+"Daszyna";0
+"£ososina Dolna";0
+"Fredropol";0
+"Strza³kowo";0
+"Ceków-Kolonia";0
+"R¹bino";0
+"Bielsk";0
+"Skrzyszów";0
+"£êka Opatowska";0
+"T³uchowo";0
+"Wiñsko";0
+"Soœnie";0
+"Ojrzeñ";0
+"Kaczory";0
+"Branice";0
+"Krempna";0
+"Kuœlin";0
+"Radgoszcz";0
+"Przyrów";0
+"Stara Kamienica";0
+"Korzenna";0
+"Rzeczenica";0
+"B³êdów";0
+"Szaflary";0
+"Rudna";0
+"Lubenia";0
+"Stromiec";0
+"Stoczek";0
+"Krasocin";0
+"Paszowice";0
+"Izbicko";0
+"Lutowiska";0
+"Stara Bia³a";0
+"Drawsko";0
+"Przybiernów";0
+"Ksi¹¿ Wielki";0
+"Goœcieradów";0
+"Niebylec";0
+"Rychtal";0
+"Adamówka";0
+"Jerzmanowice-Przeginia";0
+"Mycielin";0
+"Rz¹œnik";0
+"Skar¿ysko Koœcielne";0
+"Br¹szewice";0
+"Linia";0
+"Boles³aw";0
+"Wydminy";0
+"W¹pielsk";0
+"Dzierzkowice";0
+"Gruta";0
+"Gorzków";0
+"Czastary";0
+"Paw³osiów";0
+"Bulkowo";0
+"Kroœcienko Wy¿ne";0
+"Budzów";0
+"Lubochnia";0
+"Ch¹œno";0
+"¯urawica";0
+"Gronowo Elbl¹skie";0
+"Kamieniec Z¹bkowicki";0
+"Niegos³awice";0
+"Chodel";0
+"Rojewo";0
+"Tarnówka";0
+"Sadkowice";0
+"Izbica";0
+"Jab³onka";0
+"Domaradz";0
+"Widawa";0
+"Dwikozy";0
+"Brojce";0
+"Malanów";0
+"Domaszowice";0
+"Subkowy";0
+"Rudziniec";0
+"Potêgowo";0
+"Piecki";0
+"Przewóz";0
+"Rawa Mazowiecka";0
+"Popów";0
+"Osina";0
+"Grabów nad Pilic¹";0
+"Przeworsk";0
+"Drwinia";0
+"Borzêcin";0
+"Lipce Reymontowskie";0
+"Choczewo";0
+"Ostrowite";0
+"Mêdrzechów";0
+"Radoszyce";0
+"¯o³ynia";0
+"Janowo";0
+"Sieciechów";0
+"Rzepiennik Strzy¿ewski";0
+"Brody";0
+"Karnice";0
+"Brañszczyk";0
+"Polska Cerekiew";0
+"Bodzechów";0
+"Osiecznica";0
+"Przystajñ";0
+"Szerzyny";0
+"Przytyk";0
+"Karniewo";0
+"Radziechowy-Wieprz";0
+"Czemierniki";0
+"Kuczbork-Osada";0
+"Stary Lubotyñ";0
+"Bogdaniec";0
+"Ciasna";0
+"Tarnów Opolski";0
+"Morzeszczyn";0
+"Bierzwnik";0
+"Kobiele Wielkie";0
+"Malechowo";0
+"Pa³ecznica";0
+"Waœniów";0
+"Rudniki";0
+"£ukowa";0
+"Krasnosielc";0
+"Ma³dyty";0
+"Rani¿ów";0
+"Horod³o";0
+"Teresin";0
+"Nowy Korczyn";0
+"Udanin";0
+"Przelewice";0
+"Magnuszew";0
+"Trawniki";0
+"D¹browa Zielona";0
+"Zatory";0
+"Waganiec";0
+"Igo³omia-Wawrzeñczyce";0
+"Krzeszyce";0
+"Doruchów";0
+"Stare Czarnowo";0
+"Mieœcisko";0
+"Rajcza";0
+"Dydnia";0
+"Turoœl";0
+"Nowa BrzeŸnica";0
+"Jasieniec";0
+"Rychliki";0
+"Goszczyn";0
+"Dygowo";0
+"Parady¿";0
+"Markusy";0
+"Walim";0
+"Obsza";0
+"Domaniów";0
+"Lubowidz";0
+"Lipie";0
+"Ruda-Huta";0
+"Gardeja";0
+"Lututów";0
+"Gnojnik";0
+"Jeleœnia";0
+"Baruchowo";0
+"Bieliny";0
+"Œwiêtajno";0
+"Babice";0
+"Tryñcza";0
+"Naruszewo";0
+"P¹tnów";0
+"Szczawin Koœcielny";0
+"D¹browice";0
+"Lipinki";0
+"Je¿owe";0
+"Kocierzew Po³udniowy";0
+"D¹browa";0
+"Lisewo";0
+"Wilczyce";0
+"Karsin";0
+"Tuszów Narodowy";0
+"Rutki";0
+"Wielowieœ";0
+"£yszkowice";0
+"Pi¹tek";0
+"Kraszewice";0
+"Kondratowice";0
+"Latowicz";0
+"Jasionówka";0
+"Jedlnia-Letnisko";0
+"Niechlów";0
+"Wodzis³aw";0
+"Laskowa";0
+"Wilko³az";0
+"Ochotnica Dolna";0
+"Sanniki";0
+"Borkowice";0
+"Jedwabno";0
+"Pleœna";0
+"Jab³onna Lacka";0
+"Czarny Dunajec";0
+"£yse";0
+"Olszanka";0
+"Siekierczyn";0
+"Irz¹dze";0
+"Skrwilno";0
+"Wola Krzysztoporska";0
+"Dubiecko";0
+"Wrêczyca Wielka";0
+"Nowodwór";0
+"Komarów-Osada";0
+"Ryjewo";0
+"MiedŸno";0
+"Przeroœl";0
+"Œwinna";0
+"¯yrzyn";0
+"Galewice";0
+"P³oœnica";0
+"Boæki";0
+"Spytkowice";0
+"Panki";0
+"Borki";0
+"Bodzanów";0
+"W¹wolnica";0
+"Milówka";0
+"Dêbnica Kaszubska";0
+"Tarnowiec";0
+"Korczew";0
+"Kowal";0
+"Grzmi¹ca";0
+"Miejsce Piastowe";0
+"Œwiecie nad Os¹";0
+"Do³hobyczów";0
+"Walce";0
+"Tuczêpy";0
+"Trzeszczany";0
+"Strzegowo";0
+"Wilków";0
+"Górzyca";0
+"Pacanów";0
+"Czeremcha";0
+"Œwiekatowo";0
+"Kiszkowo";0
+"Potworów";0
+"Cisek";0
+"Che³m¿a";0
+"Szumowo";0
+"Bielawy";0
+"Pcim";0
+"K¹kolewnica";0
+"£u¿na";0
+"Borowa";0
+"Adamów";0
+"Grzegorzew";0
+"Sarnaki";0
+"Boguty-Pianki";0
+"Uchanie";0
+"Michów";0
+"Opatowiec";0
+"Telatyn";0
+"Pakos³awice";0
+"Jaœwi³y";0
+"Hañsk";0
+"Czerwonka";0
+"Troszyn";0
+"Wojcieszków";0
+"Dzikowiec";0
+"Stubno";0
+"Bia³opole";0
+"Lasowice Wielkie";0
+"Jab³oñ";0
+"Nur";0
+"Mirzec";0
+"Mi¹czyn";0
+"Krypno";0
+"Zalesie";0
+"Roœciszewo";0
+"Osiêciny";0
+"Lubanie";0
+"Sztabin";0
+"Miasteczko Krajeñskie";0
+"D¹brówno";0
+"Rakszawa";0
+"Rusiec";0
+"Sêkowa";0
+"Mi³ki";0
+"Wiœniew";0
+"Ryñsk";0
+"Baækowice";0
+"Herby";0
+"Nozdrzec";0
+"Bia³oœliwie";0
+"Warlubie";0
+"Zarêby Koœcielne";0
+"Tar³ów";0
+"Kodeñ";0
+"Kamienica";0
+"Rytwiany";0
+"P³oniawy-Bramura";0
+"Pietrowice Wielkie";0
+"Wielopole Skrzyñskie";0
+"Inow³ódz";0
+"Laszki";0
+"£omazy";0
+"Rzeczniów";0
+"Koneck";0
+"G³owaczów";0
+"Gródek";0
+"Lubiewo";0
+"Wierzbinek";0
+"Nowe Piekuty";0
+"Kadzid³o";0
+"Iwkowa";0
+"Je¿ów";0
+"Kalinowo";0
+"Bledzew";0
+"Koz³ów";0
+"Regimin";0
+"Krzczonów";0
+"Za³uski";0
+"Koñskowola";0
+"Nowy Duninów";0
+"£abowa";0
+"Œniadowo";0
+"Szczurowa";0
+"Grabowiec";0
+"Oksa";0
+"Szypliszki";0
+"Werbkowice";0
+"Godziszów";0
+"Policzna";0
+"Turobin";0
+"W¹sewo";0
+"Góra Œwiêtej Ma³gorzaty";0
+"Jakubów";0
+"Moskorzew";0
+"Józefów nad Wis³¹";0
+"Sienno";0
+"D³ugosiod³o";0
+"Korytnica";0
+"Krynice";0
+"Dolice";0
+"Topólka";0
+"Gowarczów";0
+"Wyryki";0
+"Pi¹tnica";0
+"Rybczewice";0
+"Mniów";0
+"¯ó³kiewka";0
+"Przy³êk";0
+"Grêbów";0
+"Koszyce";0
+"Babiak";0
+"Gródek nad Dunajcem";0
+"Osiek Jasielski";0
+"Charsznica";0
+"Rzeczyca";0
+"Ko³aki Koœcielne";0
+"Lubsza";0
+"Grabica";0
+"Dorohusk";0
+"Zambrów";0
+"Goszczanów";0
+"Chodów";0
+"Lipowiec Koœcielny";0
+"Grudusk";0
+"Haczów";0
+"Komarówka Podlaska";0
+"Nurzec-Stacja";0
+"Bli¿yn";0
+"Pawonków";0
+"Stara Kornica";0
+"Olszanica";0
+"Lniano";0
+"Bojanów";0
+"Wola Uhruska";0
+"Domanice";0
+"Zawady";0
+"Wojciechowice";0
+"Nieborów";0
+"Rossosz";0
+"Ulhówek";0
+"Wilkowice";0
+"Po³ajewo";0
+"Pêpowo";0
+"Miastkowo";0
+"Jawornik Polski";0
+"Zawidz";0
+"Zarszyn";0
+"Pacyna";0
+"Szastarka";0
+"Nowa S³upia";0
+"Jednoro¿ec";0
+"Radecznica";0
+"Skierbieszów";0
+"Zebrzydowice";0
+"Baligród";0
+"NiedŸwiada";0
+"S³opnice";0
+"Trzyci¹¿";0
+"Kruszyna";0
+"B¹dkowo";0
+"Baboszewo";0
+"Hanna";0
+"¯mudŸ";0
+"Dzierzgowo";0
+"Murów";0
+"Ma³y P³ock";0
+"Czarnia";0
+"Dzwola";0
+"Rusinów";0
+"K³omnice";0
+"Mochowo";0
+"Stary Dzików";0
+"Goraj";0
+"Soko³y";0
+"Kowale Oleckie";0
+"Firlej";0
+"Obrazów";0
+"Nowy ¯migród";0
+"Krzywda";0
+"Mokrsko";0
+"Siemieñ";0
+"Milanów";0
+"Rozogi";0
+"Janów Podlaski";0
+"Baranowo";0
+"Szreñsk";0
+"Zakrzówek";0
+"Bedlno";0
+"Skomlin";0
+"Wielgie";0
+"Klimontów";0
+"Dmosin";0
+"Bêdków";0
+"Kamiennik";0
+"¯elechlinek";0
+"Korycin";0
+"Sterdyñ";0
+"Klonowa";0
+"Wyszki";0
+"Wysokie";0
+"Horyniec-Zdrój";0

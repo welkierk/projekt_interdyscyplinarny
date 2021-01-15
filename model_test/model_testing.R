@@ -10,7 +10,7 @@ library(ROCR)
 library(MLmetrics)
 
 # data for regression model
-set.seed(420)
+set.seed(1614)
 df <- read.csv("../dochody_i_ludnosc.csv", encoding = "UTF-8") # 2521 gminas
 modelResultsBin <- read.csv2("gminasDevClasByModel.csv") # 2046 gminas - developed (1) / undeveloped (0)
 modelResultsCont <- read.csv2("gminasDevRegByModel.csv")
@@ -83,7 +83,7 @@ print(paste0("Area of place under the curve: ", round(auc, 2))) # 0.9!!
 print(paste0("Precision: ", round(Precision(yBin, predictedBin), 2))) # 0.92!!
 
 ## 5. Recall
-print(paste0("Precision: ", round(Recall(yBin, predictedBin), 2))) # 0.84!!
+print(paste0("Recall: ", round(Recall(yBin, predictedBin), 2))) # 0.84!!
 
 ## 6. F1 score
 print(paste0("F1 score: ", round(F1_Score(yBin, predictedBin), 2))) # 0.88!

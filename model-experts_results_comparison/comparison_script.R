@@ -9,6 +9,7 @@ library(tuneRanger)
 library(ggplot2)
 
 # data for regression model
+set.seed(1613)
 df <- read.csv("../dochody_i_ludnosc.csv", encoding = "UTF-8") # 2522 gminas
 train <- read.csv("../train.csv") # 72 gminas - developed (1) / undeveloped (0)
 

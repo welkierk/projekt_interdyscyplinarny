@@ -8,7 +8,6 @@ library(tuneRanger)
 library(ggplot2)
 set.seed(1613)
 
-
 # data for regression model
 df <- read.csv("../dochody_i_ludnosc.csv", encoding = "UTF-8") # 2522 gminas
 train <- read.csv("../train.csv") # 72 gminas - developed (1) / undeveloped (0)
@@ -58,7 +57,7 @@ for(gmina in all_gminas) {
   current_type <- gminas_types[which]
   print(paste0("Analyzing gminas type: ", current_type))
   gmina <- gmina %>%
-    select(-'Województwo') %>%
+    select(-'Wojew�dztwo') %>% # select(-'Województwo') %>% if doesn't work
     right_join(resultFiltered, by = c("Gmina" = "name")) %>%
     na.omit()
   nOfRows <- nrow(gmina)
