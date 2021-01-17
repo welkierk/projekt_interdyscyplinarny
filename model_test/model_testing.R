@@ -10,7 +10,7 @@ library(ROCR)
 library(MLmetrics)
 
 # data for regression model
-set.seed(1628)
+set.seed(1612)
 df <- read.csv("../dochody_i_ludnosc_2.csv", encoding = "UTF-8") # 2521 gminas
 modelResultsBin <- read.csv2("gminasDevClasByModel.csv") # 2046 gminas - developed (1) / undeveloped (0)
 modelResultsCont <- read.csv2("gminasDevRegByModel.csv")
@@ -79,17 +79,17 @@ plot (ROC.perf); # beautiful!!
 ## 3. ROC area under the curve
 auc.tmp <- performance(predBin,"auc");
 auc <- as.numeric(auc.tmp@y.values)
-print(paste0("Area of place under the curve: ", round(auc, 2))) # 0.85
+print(paste0("Area of place under the curve: ", round(auc, 2))) # 0.84
 
 ## 4. Precision
-print(paste0("Precision: ", round(Precision(yBin, predictedBin), 2))) # 0.87
+print(paste0("Precision: ", round(Precision(yBin, predictedBin), 2))) # 0.86
 
 ## 5. Recall
-print(paste0("Recall: ", round(Recall(yBin, predictedBin), 2))) # 0.9
+print(paste0("Recall: ", round(Recall(yBin, predictedBin), 2))) # 0.91
 
 ## 6. F1 score
-print(paste0("F1 score: ", round(F1_Score(yBin, predictedBin), 2))) # 0.88
+print(paste0("F1 score: ", round(F1_Score(yBin, predictedBin), 2))) # 0.89
 
 # CONTINUOUS
 # 7. Correlation
-cor(yCont, predictedCont) # 0.71
+cor(yCont, predictedCont) # 0.66

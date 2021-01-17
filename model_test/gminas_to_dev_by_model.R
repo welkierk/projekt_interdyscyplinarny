@@ -9,12 +9,16 @@ library(ggplot2)
 set.seed(1613)
 
 # data for regression model
-df <- read.csv("../dochody_i_ludnosc.csv", encoding = "UTF-8") # 2522 gminas
-train <- read.csv("../train.csv") # 72 gminas - developed (1) / undeveloped (0)
+df <- read.csv("../dochody_i_ludnosc_2.csv", encoding = "UTF-8") # 2522 gminas
+train <- read.csv("../model_z_danymi_ze_zdj/new_train.csv") # 72 gminas - developed (1) / undeveloped (0)
 
 t2 <- train %>% left_join(df, by = c("id" = "Kod"))
-t3 <- subset(t2, select = -c(X.x, gmina, powiat, id, longitude, latitude, X.y, Nazwa))
+#colnames(t2)
+t3 <- subset(t2, select = -c(X.x, gmina, powiat, id, longitude.x, latitude.x,
+                             longitude.y, latitude.y, X.y, Nazwa, X.1,
+                             water.y, vegetation.y))
 t3 <- na.omit(t3)
+#colnames(t3)
 
 # building a model
 classif_task <- makeClassifTask(data = t3, target = "wynik", positive = 1)
@@ -24,7 +28,12 @@ df_test <- na.omit(subset(df, select = -X))
 gminy <- df_test[,c("Nazwa")]
 
 df_test <- subset(df_test, select = -c(Nazwa, Kod))
+#colnames(df_test)
+colnames(df_test)[colnames(df_test) == 'water'] = 'water.x'
+colnames(df_test)[colnames(df_test) == 'vegetation'] = 'vegetation.x'
 pred_ranger <- predict(res_ranger$model, newdata = df_test)
+#colnames(t3)
+#colnames(df_test)
 result <- as.data.frame(cbind(as.numeric(pred_ranger$data$prob.1), gminy))
 colnames(result) = c("score", "name")
 
