@@ -54,13 +54,14 @@ ui <- fluidPage(
                  value = 53.5, min = 0, max = 90),
     
     verbatimTextOutput("value"),
-    
-    actionButton("btn", "Predict")
-    
   ),
   mainPanel(
     # radioButtons('format', 'Document format', c('HTML', 'PDF'), inline = TRUE),
-    downloadButton('downloadReport', label = "Download HTML report"),
+    div(style="display:inline-block",
+        actionButton("btn", "Calculate the best gminas for investment in the area")),
+    div(style="display:inline-block; float:right;",
+        downloadButton('downloadReport', label = "Download HTML report")),
+    
     br(),
     br(),
     leafletOutput("mymap", height = 300),
