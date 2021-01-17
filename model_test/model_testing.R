@@ -11,7 +11,7 @@ library(MLmetrics)
 
 # data for regression model
 set.seed(1628)
-df <- read.csv("../dochody_i_ludnosc.csv", encoding = "UTF-8") # 2521 gminas
+df <- read.csv("../dochody_i_ludnosc_2.csv", encoding = "UTF-8") # 2521 gminas
 modelResultsBin <- read.csv2("gminasDevClasByModel.csv") # 2046 gminas - developed (1) / undeveloped (0)
 modelResultsCont <- read.csv2("gminasDevRegByModel.csv")
 
@@ -23,12 +23,14 @@ df <- df[-which_have_neg_infs,]
 mergedBin <- modelResultsBin %>% left_join(df, by = "X")
 mergedCont <- modelResultsCont %>% left_join(df, by = "X")
 #colnames(mergedBin)
-main_bin <- subset(mergedBin, select = -c(X, gmina, powiat, gminaType, Kod))
+main_bin <- subset(mergedBin, select = -c(X, gmina, powiat, gminaType, Kod,
+                                          longitude, latitude))
 main_bin <- na.omit(main_bin)
-main_cont <- subset(mergedCont, select = -c(X, gmina, powiat, gminaType, Kod))
+main_cont <- subset(mergedCont, select = -c(X, gmina, powiat, gminaType, Kod,
+                                            longitude, latitude))
 main_cont <- na.omit(main_cont)
 #nrow(main_bin) # 1680
-#colnames(main_bin) # 28 feature columns, 1 target one (+Nazwa)
+#colnames(main_bin) # 30 feature columns, 1 target one (+Nazwa)
 
 main_nrows <- nrow(main_bin)
 train_set_size <- 0.75
@@ -68,7 +70,7 @@ predBin <- prediction(predictedBin, yBin)
 
 # BINARY
 ## 1. Accuracy
-print(paste0("Accuracy: ", round(mean(yBin == predictedBin), 2))) # 0.64
+print(paste0("Accuracy: ", round(mean(yBin == predictedBin), 2))) # 0.86
 
 ## 2. ROC curve
 ROC.perf <- performance(predBin, "tpr", "fpr")
@@ -77,17 +79,17 @@ plot (ROC.perf); # beautiful!!
 ## 3. ROC area under the curve
 auc.tmp <- performance(predBin,"auc");
 auc <- as.numeric(auc.tmp@y.values)
-print(paste0("Area of place under the curve: ", round(auc, 2))) # 0.6
+print(paste0("Area of place under the curve: ", round(auc, 2))) # 0.85
 
 ## 4. Precision
-print(paste0("Precision: ", round(Precision(yBin, predictedBin), 2))) # 0.65
+print(paste0("Precision: ", round(Precision(yBin, predictedBin), 2))) # 0.87
 
 ## 5. Recall
-print(paste0("Recall: ", round(Recall(yBin, predictedBin), 2))) # 0.83
+print(paste0("Recall: ", round(Recall(yBin, predictedBin), 2))) # 0.9
 
 ## 6. F1 score
-print(paste0("F1 score: ", round(F1_Score(yBin, predictedBin), 2))) # 0.73
+print(paste0("F1 score: ", round(F1_Score(yBin, predictedBin), 2))) # 0.88
 
 # CONTINUOUS
 # 7. Correlation
-cor(yCont, predictedCont) # 0.20
+cor(yCont, predictedCont) # 0.71
