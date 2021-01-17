@@ -58,7 +58,7 @@ ui <- fluidPage(
   mainPanel(
     # radioButtons('format', 'Document format', c('HTML', 'PDF'), inline = TRUE),
     div(style="display:inline-block",
-        actionButton("btn", "Calculate the best gminas for investment in the area")),
+        actionButton("btn", "Calculate the best municipalities for investment in the area")),
     div(style="display:inline-block; float:right;",
         downloadButton('downloadReport', label = "Download HTML report")),
     
@@ -275,7 +275,7 @@ server <- function(input, output, session) {
     prediction <<- head(result[order(as.vector(result$score), decreasing=TRUE),],5) # global
     prediction$score <<- round(prediction$score, 3)
     output$table <- DT::renderDataTable(prediction,
-                                        colnames = c('Score', 'Gmina', 'Longitude', 'Latitude'))
+                                        colnames = c('Score', 'Municipality', 'Longitude', 'Latitude'))
     remove_modal_spinner()
     enable("btn")
     enable("downloadReport")
