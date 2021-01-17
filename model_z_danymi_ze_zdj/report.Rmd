@@ -36,11 +36,11 @@ library(ranger)
 Sys.setlocale(category = "LC_ALL", locale = "Polish")
 ```
 
-Top 5 gminas in the selected area are presented in the table. Those locations are marked on the map below. If you want to check to which gmina given marker corresponds, click on it.
+Top 5 municipalities in the selected area are presented in the table. Those locations are marked on the map below. If you want to check to which municipality given marker corresponds, click on it.
 
 ```{r}
 table <- params$table
-colnames(table) <- c('Score', 'Gmina', 'Longitude', 'Latitude')
+colnames(table) <- c('Score', 'Municipality', 'Longitude', 'Latitude')
 kable(table, align = "c") %>%
   kable_styling() %>%
   column_spec(1, bold = T) %>%
@@ -51,7 +51,7 @@ kable(table, align = "c") %>%
 ```{r}
 temp <- t(cbind(table[,3],table[,4]))
 coord <- data.frame(lat=temp[2,], lng=temp[1,])
-label <- table$Gmina[-1]
+label <- table$Municipality[-1]
 df <- data.frame(lat = as.numeric(coord$lat),
                  lng = as.numeric(coord$lng))
 zoom <- abs(ceiling(log2(max(params$lng_max - params$lng_min, params$lat_max - params$lat_min) / 256))) +1
@@ -72,7 +72,7 @@ df[-1,] %>%
 
 ```
 
-Following plot shows how different factors are used by the model to create final result in case of best gmina. The last plot presents variable importance in the prediction model.
+Following plot shows how different factors are used by the model to create final result in case of best municipality. The last plot presents variable importance in the prediction model.
 
 ```{r breakdown}
 data <- params$data
