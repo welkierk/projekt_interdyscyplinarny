@@ -10,12 +10,16 @@ library(ggplot2)
 
 # data for regression model
 set.seed(1613)
-df <- read.csv("../dochody_i_ludnosc.csv", encoding = "UTF-8") # 2522 gminas
-train <- read.csv("../train.csv") # 72 gminas - developed (1) / undeveloped (0)
+df <- read.csv("../model_z_danymi_ze_zdj/dochody_i_ludnosc_2.csv", encoding = "UTF-8") # 2522 gminas
+train <- read.csv("../model_z_danymi_ze_zdj/new_train.csv") # 72 gminas - developed (1) / undeveloped (0)
+train <- train[, -1]
 
-t2 <- train %>% left_join(df, by = c("id" = "Kod"))
-t3 <- subset(t2, select = -c(X.x, gmina, powiat, id, longitude, latitude, X.y, Nazwa))
+colnames(train)
+t2 <- train %>% left_join(select(df, -c(X, water, vegetation)), by=c("id" = "Kod"))
+colnames(t2)
+t3 <- subset(t2, select = -c(X, gmina, powiat, id, longitude.x, latitude.x, longitude.y, latitude.y, Nazwa))
 t3 <- na.omit(t3)
+#colnames(t3)
 
 # building a model
 classif_task <- makeClassifTask(data = t3, target = "wynik", positive = 1)
@@ -42,7 +46,7 @@ print(paste0("After deleting repeated onces: ", nrow(resultFiltered)))
 print(paste0("Percent of gminas deleted: ", round((nrow(result)-nrow(resultFiltered))/nrow(result)*100, 2),'%'))
 # Yay! Shouldn't make a difference
 
-exDir <- "rankingi_ekspertow_PW" # expert data folder
+exDir <- "../rankingi_ekspertow_PW" # expert data folder
 cities <- read.csv(paste0(exDir, "/miastaNaPrawachPowiatu.tsv"), sep = '\t', encoding = 'UTF-8')
 urban <- read.csv(paste0(exDir, "/gminyMiejskie.tsv"), sep = '\t', encoding = 'UTF-8')
 urban_rural <- read.csv(paste0(exDir, "/gminyMiejskoWiejskie.tsv"), sep = '\t', encoding = 'UTF-8')
