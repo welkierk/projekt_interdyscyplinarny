@@ -51,7 +51,7 @@ dane_ze_wspol <- function(wektor_longitude, wektor_latitude){
   stopifnot(length(wektor_longitude) == length(wektor_latitude))
   #mój kod API - mam bezpłatny limit na dość sporą liczbę zapytań, ale jest to ograniczona
   #liczba, więc korzystajcie, ale nie róbcie bez potrzeby pętli z tysiącami adresów
-  register_google(key = "AIzaSyDzpUawTQC4I_Sru1G0EkgcgbsJ9uKAt2I", write = TRUE)
+  register_google(key = "", write = TRUE)
   tb <- read.csv("kody.csv", header = TRUE, row.names=NULL, sep = ";", fileEncoding = "Windows-1250")
   tb <- unique(tb[,c("KOD.POCZTOWY","POWIAT")])
   random_longitude <- wektor_longitude
